@@ -1,5 +1,7 @@
 ## Taiger Reporting Frontend
 
+[Live demo](https://sad-lewin-2e9852.netlify.com/#/)
+
 ### Project important dependencies
 * State management: `vuex`
 * Router: `vue-router`
