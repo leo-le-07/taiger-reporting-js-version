@@ -10,7 +10,7 @@
 
 <style lang="scss">
 #app {
-  font-family: 'Roboto', sans-serif;
+  font-family: $font-family;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
