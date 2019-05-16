@@ -1,31 +1,37 @@
-# taiger-reporting-fe
+## Taiger Reporting Frontend
 
-## Project setup
+### Project important dependencies
+* State management: `vuex`
+* Router: `vue-router`
+* Post-CSS: `sass`
+* ESLint: `@vue/eslint-config-standard`
+* Unit test: `jest`
+
+### Start project
+* Install dependencies
 ```
 yarn install
 ```
 
-### Compiles and hot-reloads for development
+* Compiles and hot-reloads for development
 ```
 yarn run serve
 ```
-
-### Compiles and minifies for production
+* Compiles and minifies for production
 ```
 yarn run build
 ```
 
-### Run your tests
+* Run your tests
 ```
 yarn run test
 ```
-
-### Lints and fixes files
+* Lints and fixes files
 ```
 yarn run lint
 ```
 
-### Run your unit tests
+* Run your unit tests
 ```
 yarn run test:unit
 ```
