@@ -12,14 +12,13 @@
 
 <script>
 export default {
-  data() {
+  data () {
     return {
       collapse: false
     }
   }
 }
 </script>
-
 
 <style scoped lang="scss">
 .sidenav {

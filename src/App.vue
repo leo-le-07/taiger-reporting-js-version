@@ -1,37 +1,20 @@
 <template>
   <div id="app">
-    <Sidebar />
     <div class="taiger-content-container">
       <router-view/>
     </div>
   </div>
 </template>
 
-<script>
-import Sidebar from '@/components/Sidebar.vue';
-
-export default {
-  components: {
-    Sidebar,
-  }
-}
-</script>
-
-
 <style lang="scss">
 #app {
-  font-family: $font-family;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: $primary;
   display: flex;
+  padding: 0 40px;
 }
 
 .taiger-content-container {
   flex-grow: 1;
 }
-
 
 /* #nav {
   padding: 30px;

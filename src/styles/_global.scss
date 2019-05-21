@@ -1,6 +1,10 @@
 body {
   margin: 0;
   padding: 0;
+  font-family: $fontFamilyDefault;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  color: $black;
 }
 
 h1 {
