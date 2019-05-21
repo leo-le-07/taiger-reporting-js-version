@@ -11,6 +11,8 @@
   "dependencies": {
     "chart.js": "^2.8.0",
     "core-js": "^2.6.5",
+    "lodash": "^4.17.11",
+    "moment": "^2.24.0",
     "vue": "^2.6.10",
     "vue-chartjs": "^3.4.2",
     "vue-router": "^3.0.3",
@@ -26,6 +28,7 @@
     "babel-core": "7.0.0-bridge.0",
     "babel-eslint": "^10.0.1",
     "babel-jest": "^23.6.0",
+    "chance": "^1.0.18",
     "eslint": "^5.16.0",
     "eslint-plugin-vue": "^5.0.0",
     "sass": "^1.18.0",
