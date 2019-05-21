@@ -8,12 +8,7 @@
 
 <style lang="scss">
 #app {
-  display: flex;
   padding: 0 40px;
-}
-
-.taiger-content-container {
-  flex-grow: 1;
 }
 
 /* #nav {

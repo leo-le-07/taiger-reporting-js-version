@@ -6,13 +6,21 @@
     <div class="chart-viewport">
       <LineChart
         :chart-data="dataCollection"
-        :styles="customStyles"
       />
       <div class="chart-legends">
         <ul class="legend">
-          <li><span class="total" />Total</li>
-          <li><span class="new" />New</li>
-          <li><span class="returning" />Returning</li>
+          <li>
+            <span class="color total" />
+            <span class="text">Total</span>
+          </li>
+          <li>
+            <span class="color new" />
+            <span class="text">New</span>
+          </li>
+          <li>
+            <span class="color returning" />
+            <span class="text">Returning</span>
+          </li>
         </ul>
       </div>
     </div>
@@ -52,11 +60,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.chart-viewport {
-  height: 232px;
-  max-height: 232px;
-}
-
 .chart-name {
   font-weight: 500;
   font-size: $fontSizeNormal;
@@ -77,17 +80,19 @@ export default {
   list-style: none;
 
   li {
-    display: flex;
-    align-items: center;
     color: $black500;
-    float: left;
+    display: inline-block;
     margin-right: 15px;
   }
 
-  span {
+  .color, .text {
+    display: inline-block;
+    vertical-align: middle;
+  }
+
+  .color {
     width: 15px;
     height: 5px;
-    float: left;
     margin-right: 8px;
   }
 

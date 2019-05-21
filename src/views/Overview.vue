@@ -21,8 +21,6 @@ export default {
 
 <style lang="scss" scoped>
 .chart-container {
-  height: 415px;
-  max-height: 415px;
   border: 1px solid $borderGray;
   border-radius: 4px;
   padding: 20px;
