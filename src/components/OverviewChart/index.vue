@@ -28,7 +28,8 @@
 </template>
 
 <script>
-import LineChart from '@/components/common/LineChart.vue'
+import LineChart from '@/components/common/LineChart/index.vue'
+import options from '@/components/common/LineChart/options.js'
 import { dataCollection } from './utils'
 
 export default {
@@ -37,7 +38,8 @@ export default {
   },
   data () {
     return {
-      dataCollection: null
+      dataCollection: null,
+      options
     }
   },
   mounted () {
@@ -46,14 +48,7 @@ export default {
   methods: {
     fillData () {
       this.dataCollection = dataCollection()
-    }
-  },
-  computed: {
-    customStyles () {
-      return {
-        height: '232px',
-        position: 'relative'
-      }
+      this.options.scales.yAxes[0].ticks.stepSize = 50
     }
   }
 }
