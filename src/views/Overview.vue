@@ -4,17 +4,22 @@
       <h1>Overview</h1>
     </div>
     <div class="chart-container">
-      <OverviewChart />
+      <ChatbotUsersChart />
+    </div>
+    <div class="performance-container">
+      <ChatbotPerformance />
     </div>
   </div>
 </template>
 
 <script>
-import OverviewChart from '@/components/OverviewChart/index.vue'
+import ChatbotUsersChart from '@/components/ChatbotUsersChart/index.vue'
+import ChatbotPerformance from '@/components/ChatbotPerformance/index.vue'
 
 export default {
   components: {
-    OverviewChart
+    ChatbotUsersChart,
+    ChatbotPerformance
   }
 }
 </script>
@@ -24,5 +29,9 @@ export default {
   border: 1px solid $borderGray;
   border-radius: 4px;
   padding: 20px;
+}
+
+.performance-container {
+  margin-top: 40px;
 }
 </style>

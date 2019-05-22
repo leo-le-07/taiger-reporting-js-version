@@ -1,16 +1,16 @@
 <template>
-  <div id="app">
+  <b-container id="app">
     <div class="taiger-content-container">
       <router-view/>
     </div>
-  </div>
+  </b-container>
 </template>
 
-<style lang="scss">
+<style lang="scss" scoped>
 #app {
-  padding: 0 40px;
+  padding-top: 40px;
+  padding-bottom: 20px;
 }
-
 /* #nav {
   padding: 30px;
   a {
