@@ -42,10 +42,11 @@ export default {
   table {
     th {
       text-align: left;
-      font-size: 6px;
-      line-height: 24px;
+      font-size: 8px;
+      line-height: 12px;
       font-weight: 500;
       font-style: normal;
+      text-transform: uppercase;
     }
 
     td {

@@ -19,6 +19,7 @@ export default {
     }],
     yAxes: [{
       ticks: {
+        padding: 2,
         fontFamily: fontFamilyDefault,
         fontColor: colors.gray500,
         fontSize: fontSizes.small14

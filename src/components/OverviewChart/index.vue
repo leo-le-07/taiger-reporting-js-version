@@ -77,7 +77,7 @@ export default {
   li {
     color: $black500;
     display: inline-block;
-    margin-right: 15px;
+    margin-right: 18px;
   }
 
   .color, .text {
