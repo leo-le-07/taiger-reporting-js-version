@@ -4,8 +4,10 @@ import sortBy from 'lodash/sortBy'
 import { DD_MM } from '@/utils/dateFormatter'
 import { overviewData } from '@/services/chatbotUsers'
 
-export const dataCollection = () => {
-  const data = overviewData()
+export const dataCollection = ({
+  timeType
+}) => {
+  const data = overviewData({ timeType })
   const { newUser, returningUser, totalUser } = data
   const labels = sortBy(newUser, 'date').map((item) => moment(item.date).format(DD_MM))
   const datasets = [

@@ -39,7 +39,6 @@ export default {
 }
 </script>
 
-
 <style lang="scss" scoped>
 .custom-button-group {
   .custom-btn {

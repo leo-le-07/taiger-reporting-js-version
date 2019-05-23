@@ -59,7 +59,9 @@ export default {
   },
   methods: {
     fillData () {
-      this.dataCollection = dataCollection()
+      this.dataCollection = dataCollection({
+        timeType: this.timeType
+      })
     },
     handleUpdateTimeType (newTimeType) {
       this.timeType = newTimeType
