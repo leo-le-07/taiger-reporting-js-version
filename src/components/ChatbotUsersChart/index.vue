@@ -95,6 +95,7 @@ export default {
 
 .legend {
   list-style: none;
+  margin-top: 1rem;
 
   li {
     color: $black500;

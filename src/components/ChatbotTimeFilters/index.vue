@@ -15,6 +15,13 @@
       >
         Week
       </b-button>
+      <b-button
+        class="custom-btn"
+        :class="{ active: timeType === timeTypes.MONTH }"
+        @click="updateTimeType(timeTypes.MONTH)"
+      >
+        Month
+      </b-button>
     </b-button-group>
   </div>
 </template>
