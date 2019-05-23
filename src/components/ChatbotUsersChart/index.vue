@@ -2,6 +2,12 @@
   <div class="container">
     <div class="sub-header">
       <div class="chart-name">Chatbot Users</div>
+      <div class="time-filters-container">
+        <ChatbotTimeFilters
+          :updateTimeType="handleUpdateTimeType"
+          :timeType="timeType"
+        />
+      </div>
     </div>
     <div class="chart-viewport">
       <LineChart
@@ -29,17 +35,22 @@
 
 <script>
 import LineChart from '@/components/common/LineChart/index.vue'
+import ChatbotTimeFilters from '@/components/ChatbotTimeFilters/index.vue'
+
 import options from '@/components/common/LineChart/options.js'
+import { TIME_TYPES } from '@/components/ChatbotTimeFilters/utils.js'
 import { dataCollection } from './utils'
 
 export default {
   components: {
-    LineChart
+    LineChart,
+    ChatbotTimeFilters
   },
   data () {
     return {
       dataCollection: null,
-      options
+      options,
+      timeType: TIME_TYPES.DAY
     }
   },
   mounted () {
@@ -49,6 +60,9 @@ export default {
     fillData () {
       this.dataCollection = dataCollection()
       this.options.scales.yAxes[0].ticks.stepSize = 50
+    },
+    handleUpdateTimeType (newTimeType) {
+      this.timeType = newTimeType
     }
   }
 }
@@ -64,6 +78,9 @@ export default {
 
 .sub-header {
   margin-bottom: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .chart-legends {
