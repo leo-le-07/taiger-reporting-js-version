@@ -54,15 +54,20 @@ export default {
     }
   },
   mounted () {
+    this.options.scales.yAxes[0].ticks.stepSize = 50
     this.fillData()
   },
   methods: {
     fillData () {
       this.dataCollection = dataCollection()
-      this.options.scales.yAxes[0].ticks.stepSize = 50
     },
     handleUpdateTimeType (newTimeType) {
       this.timeType = newTimeType
+    }
+  },
+  watch: {
+    timeType (value) {
+      this.fillData()
     }
   }
 }
