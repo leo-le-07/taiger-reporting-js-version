@@ -1,5 +1,5 @@
 <template>
-  <div class="container">
+  <div class="vue-container">
     <div class="sub-header">
       <div class="chart-name">Chatbot Users</div>
       <div class="time-filters-container">

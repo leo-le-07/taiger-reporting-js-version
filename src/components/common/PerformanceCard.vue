@@ -41,7 +41,7 @@ export default {
     return {
       infoIcon: faInfoCircle,
       upIcon: faCaretUp,
-      downIcon: faCaretDown,
+      downIcon: faCaretDown
     }
   },
   components: {

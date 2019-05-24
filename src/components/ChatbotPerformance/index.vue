@@ -68,7 +68,6 @@ export default {
 }
 </script>
 
-
 <style lang="scss" scoped>
   h3 {
     margin: 0;

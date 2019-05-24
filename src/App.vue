@@ -1,37 +1,49 @@
 <template>
   <div class="vue-container">
-    <div class="navbar-container">
-      <NavBar />
+    <Sidebar :isCollapsed="isCollapsed" :toggleCollapsed="toggleCollapsed" />
+    <div class="content-container" :class="{ collapsed: isCollapsed }">
+      <b-container>
+        <router-view/>
+      </b-container>
     </div>
-    <b-container class="taiger-content-container">
-      <router-view/>
-    </b-container>
   </div>
 </template>
 
 <script>
-import NavBar from '@/components/common/NavBar/index.vue'
+import Sidebar from '@/components/Sidebar.vue'
 
 export default {
+  data () {
+    return {
+      isCollapsed: true
+    }
+  },
+  methods: {
+    toggleCollapsed () {
+      this.isCollapsed = !this.isCollapsed
+    }
+  },
   components: {
-    NavBar
+    Sidebar
   }
 }
 </script>
 
 <style lang="scss" scoped>
-.taiger-content-container {
+.vue-container {
+  display: flex;
+}
+
+.content-container {
   padding-top: 40px;
   padding-bottom: 30px;
-}
-/* #nav {
-  padding: 30px;
-  a {
-    font-weight: bold;
-    color: $primary;
-    &.router-link-exact-active {
-      color: #42b983;
-    }
+  margin-left: 280px;
+  transition: .3s ease;
+  width: 100%;
+
+  &.collapsed {
+    margin-left: 80px;
+    transition: .3s ease;
   }
-} */
+}
 </style>
