@@ -1,4 +1,4 @@
-## Taiger Reporting Frontend
+## iconverse-analytics
 
 [Live demo](https://sad-lewin-2e9852.netlify.com/#/)
 
