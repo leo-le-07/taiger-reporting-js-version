@@ -15,7 +15,7 @@ import Sidebar from '@/components/Sidebar.vue'
 export default {
   data () {
     return {
-      isCollapsed: true
+      isCollapsed: false
     }
   },
   methods: {
