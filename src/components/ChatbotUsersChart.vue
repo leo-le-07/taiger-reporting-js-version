@@ -3,16 +3,11 @@
     <div class="sub-header">
       <div class="chart-name">Chatbot Users</div>
       <div class="time-filters-container">
-        <ChatbotTimeFilters
-          :updateTimeType="handleUpdateTimeType"
-          :timeType="timeType"
-        />
+        <ChatbotTimeFilters />
       </div>
     </div>
     <div class="chart-viewport">
-      <LineChart
-        :chart-data="dataCollection"
-      />
+      <LineChart :chartData="chartData" />
       <div class="chart-legends">
         <ul class="legend">
           <li>
@@ -34,12 +29,12 @@
 </template>
 
 <script>
+import { mapGetters, mapState } from 'vuex'
+
 import LineChart from '@/components/common/LineChart/index.vue'
-import ChatbotTimeFilters from '@/components/ChatbotTimeFilters/index.vue'
+import ChatbotTimeFilters from '@/components/ChatbotTimeFilters.vue'
 
 import options from '@/components/common/LineChart/options.js'
-import { TIME_TYPES } from '@/components/ChatbotTimeFilters/utils.js'
-import { dataCollection } from './utils'
 
 export default {
   components: {
@@ -48,29 +43,18 @@ export default {
   },
   data () {
     return {
-      dataCollection: null,
-      options,
-      timeType: TIME_TYPES.DAY
+      options
     }
   },
-  mounted () {
+  computed: {
+    ...mapState({
+      timeType: state => state.chatbotUsersOverview.timeType
+    }),
+    ...mapGetters('chatbotUsersOverview', ['chartData'])
+  },
+  created () {
     this.options.scales.yAxes[0].ticks.stepSize = 50
-    this.fillData()
-  },
-  methods: {
-    fillData () {
-      this.dataCollection = dataCollection({
-        timeType: this.timeType
-      })
-    },
-    handleUpdateTimeType (newTimeType) {
-      this.timeType = newTimeType
-    }
-  },
-  watch: {
-    timeType (value) {
-      this.fillData()
-    }
+    this.$store.dispatch('chatbotUsersOverview/getChartData')
   }
 }
 </script>

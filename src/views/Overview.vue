@@ -13,7 +13,7 @@
 </template>
 
 <script>
-import ChatbotUsersChart from '@/components/ChatbotUsersChart/index.vue'
+import ChatbotUsersChart from '@/components/ChatbotUsersChart.vue'
 import ChatbotPerformance from '@/components/ChatbotPerformance/index.vue'
 
 export default {

@@ -9,3 +9,9 @@ export const colors = {
 }
 
 export const fontFamilyDefault = "'Roboto', sans-serif"
+
+export const timeTypeFilters = {
+  DAY: 'day',
+  WEEK: 'week',
+  MONTH: 'month'
+}

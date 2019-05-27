@@ -3,22 +3,22 @@
     <b-button-group class="custom-button-group">
       <b-button
         class="custom-btn"
-        :class="{ active: timeType === timeTypes.DAY }"
-        @click="updateTimeType(timeTypes.DAY)"
+        :class="{ active: timeType === timeTypeFilters.DAY }"
+        @click="updateTimeType(timeTypeFilters.DAY)"
       >
         Day
       </b-button>
       <b-button
         class="custom-btn"
-        :class="{ active: timeType === timeTypes.WEEK }"
-        @click="updateTimeType(timeTypes.WEEK)"
+        :class="{ active: timeType === timeTypeFilters.WEEK }"
+        @click="updateTimeType(timeTypeFilters.WEEK)"
       >
         Week
       </b-button>
       <b-button
         class="custom-btn"
-        :class="{ active: timeType === timeTypes.MONTH }"
-        @click="updateTimeType(timeTypes.MONTH)"
+        :class="{ active: timeType === timeTypeFilters.MONTH }"
+        @click="updateTimeType(timeTypeFilters.MONTH)"
       >
         Month
       </b-button>
@@ -27,13 +27,24 @@
 </template>
 
 <script>
-import { TIME_TYPES } from '@/components/ChatbotTimeFilters/utils.js'
+import { mapState, mapMutations, mapActions } from 'vuex'
+import { timeTypeFilters } from '@/constants'
 
 export default {
-  props: ['timeType', 'updateTimeType'],
   data () {
     return {
-      timeTypes: TIME_TYPES
+      timeTypeFilters
+    }
+  },
+  computed: mapState({
+    timeType: state => state.chatbotUsersOverview.timeType
+  }),
+  methods: {
+    ...mapMutations('chatbotUsersOverview', ['setTimeType']),
+    ...mapActions('chatbotUsersOverview', ['getChartData']),
+    updateTimeType (timeType) {
+      this.setTimeType({ timeType })
+      this.getChartData()
     }
   }
 }
