@@ -279,5 +279,64 @@
         }
       ]
     }
+  ],
+  "chatbot-performance": [
+    {
+      "totalUsers" : {
+        "title": "Total Users",
+        "value": 4348,
+        "isPositivePercentage": true,
+        "percentageValue": 0.1254
+      },
+      "chatbotRating": {
+        "title": "Chatbot Rating",
+        "value": 3.98,
+        "total": 5,
+        "isPositivePercentage": false,
+        "percentageValue": 0.0002
+      },
+      "avgSessionDuration": {
+        "title": "Avg. Session Duration",
+        "value": "00:18:32",
+        "isPositivePercentage": false,
+        "percentageValue": 0.0512
+      },
+      "goalCompletion": {
+        "title": "Goal Completion",
+        "value": 46,
+        "isPositivePercentage": true,
+        "percentageValue": 0.0321
+      },
+      "goalConversionRate": {
+        "title": "Goal Conversion Rate",
+        "value": 0.1954,
+        "isPositivePercentage": true,
+        "percentageValue": 0.0164
+      },
+      "deflectionRate": {
+        "title": "Deflection Rate",
+        "value": 0.5837,
+        "isPositivePercentage": true,
+        "percentageValue": 0.0117
+      },
+      "totalFallbackCount": {
+        "title": "Total Fallback Count",
+        "value": 483,
+        "isPositivePercentage": false,
+        "percentageValue": 0.0915
+      },
+      "overallConfusion": {
+        "title": "Overal Confusion",
+        "value": 0.3943,
+        "isPositivePercentage": false,
+        "percentageValue": 0.1168
+      },
+      "chatbotActivation": {
+        "title": "Chatbot Activation",
+        "value": 0.422,
+        "isPositivePercentage": true,
+        "percentageValue": 0.0457
+      }
+    }
   ]
 }
