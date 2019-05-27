@@ -9,6 +9,11 @@
 * ESLint: `@vue/eslint-config-standard`
 * Unit test: `jest`
 
+### Naming conventions
+1. Use `kebab-casing` for file names (e.g. `chatbot-users` instead of `chatbotUsers`).
+2. Use `PascaleCasing` for Vue components.
+3. Consistantly using `camelCasing` for component props (e.g. `:isCollapsed` is acceptable now)
+
 ### Start project
 * Install dependencies
 ```
