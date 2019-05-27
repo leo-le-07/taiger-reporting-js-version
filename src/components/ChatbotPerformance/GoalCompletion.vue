@@ -13,11 +13,18 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
+
 import PerformanceCard from '@/components/common/PerformanceCard.vue'
 
 export default {
   components: {
     PerformanceCard
+  },
+  computed: {
+    ...mapGetters('chatbotPerformance', {
+      data: 'goalCompletion'
+    })
   }
 }
 </script>

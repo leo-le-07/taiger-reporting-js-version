@@ -1,23 +1,30 @@
 <template>
   <div class="vue-container">
     <PerformanceCard
-      title="Chatbot Activation %"
-      :isPositivePercentage="true"
-      percentageValue="4.57"
+      :title="data.title"
+      :isPositivePercentage="data.isPositivePercentage"
+      :percentageValue="data.percentageValue"
     >
       <div class="display-value" slot="value">
-        42.20%
+        {{ data.value }}
       </div>
     </PerformanceCard>
   </div>
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
+
 import PerformanceCard from '@/components/common/PerformanceCard.vue'
 
 export default {
   components: {
     PerformanceCard
+  },
+  computed: {
+    ...mapGetters('chatbotPerformance', {
+      data: 'chatbotActivation'
+    })
   }
 }
 </script>

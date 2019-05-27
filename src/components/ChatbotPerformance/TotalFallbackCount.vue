@@ -1,23 +1,30 @@
 <template>
   <div class="vue-container">
     <PerformanceCard
-      title="Total Fallback Count"
-      :isPositivePercentage="false"
-      percentageValue="9.15"
+      :title="data.title"
+      :isPositivePercentage="data.isPositivePercentage"
+      :percentageValue="data.percentageValue"
     >
       <div class="display-value" slot="value">
-        483
+        {{ data.value }}
       </div>
     </PerformanceCard>
   </div>
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
+
 import PerformanceCard from '@/components/common/PerformanceCard.vue'
 
 export default {
   components: {
     PerformanceCard
+  },
+  computed: {
+    ...mapGetters('chatbotPerformance', {
+      data: 'totalFallbackCount'
+    })
   }
 }
 </script>

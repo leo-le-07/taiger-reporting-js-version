@@ -284,7 +284,7 @@
     {
       "totalUsers" : {
         "title": "Total Users",
-        "value": 4348,
+        "value": 5432,
         "isPositivePercentage": true,
         "percentageValue": 0.1254
       },
@@ -332,7 +332,7 @@
         "percentageValue": 0.1168
       },
       "chatbotActivation": {
-        "title": "Chatbot Activation",
+        "title": "Chatbot Activation %",
         "value": 0.422,
         "isPositivePercentage": true,
         "percentageValue": 0.0457

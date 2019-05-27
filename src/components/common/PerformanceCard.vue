@@ -17,7 +17,7 @@
         <span class="indicator-icon">
           <font-awesome-icon :icon="isPositivePercentage ? upIcon : downIcon" />
         </span>
-        {{ percentageValue }}%
+        {{ percentageValue }}
       </div>
     </div>
   </div>

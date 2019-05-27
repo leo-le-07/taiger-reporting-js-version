@@ -64,6 +64,9 @@ export default {
     TotalFallbackCount,
     OverallConfusion,
     ChatbotActivation
+  },
+  created () {
+    this.$store.dispatch('chatbotPerformance/getPerformanceData')
   }
 }
 </script>

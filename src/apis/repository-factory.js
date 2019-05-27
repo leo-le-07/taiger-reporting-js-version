@@ -1,7 +1,9 @@
-import ChatbotUsersOverviewRepository from './chatbot-users-overview-repository'
+import chatbotUsersOverviewRepository from './chatbot-users-overview-repository'
+import chatbotPerformanceRepository from './chatbot-performance-repository'
 
 const repositories = {
-  chatbotUsersOverview: ChatbotUsersOverviewRepository
+  chatbotUsersOverview: chatbotUsersOverviewRepository,
+  chatbotPerformance: chatbotPerformanceRepository
 }
 
 export const repositoryFactory = {
