@@ -1,8 +1,8 @@
 import moment from 'moment'
 import sortBy from 'lodash/sortBy'
 
-import { DD_MM } from '@/utils/dateFormatter'
-import { overviewData } from '@/services/chatbotUsers'
+import { DD_MM } from '@/utils/date-formatter'
+import { overviewData } from '@/services/chatbot-users'
 
 export const dataCollection = ({
   timeType

@@ -61,7 +61,7 @@ import {
   faAlignLeft
 } from '@fortawesome/free-solid-svg-icons'
 
-import ArrowBackIcon from '@/assets/arrow_back_ios_24px.svg'
+import ArrowBackIcon from '@/assets/arrow-back-ios-24px.svg'
 import HambergerMenuIcon from '@/assets/hamberger-menu.svg'
 
 export default {
