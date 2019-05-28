@@ -19,6 +19,7 @@ const state = {
   contentDetails: {
     pageSize: DEFAULT_PAGE_SIZE,
     page: 1,
+    currentPage: 1,
     contentList: []
   }
 }
@@ -32,6 +33,9 @@ const getters = {
 const mutations = {
   setContentDetails (state, { contentList }) {
     state.contentDetails.contentList = contentList
+  },
+  setCurrentPage (state, { currentPage }) {
+    state.contentDetails.currentPage = currentPage
   }
 }
 
@@ -43,6 +47,9 @@ const actions = {
     })
     const data = response.data
     commit('setContentDetails', { contentList: data })
+  },
+  updateCurrentPage ({ commit }, { currentPage }) {
+    commit('setCurrentPage', { currentPage })
   }
 }
 
