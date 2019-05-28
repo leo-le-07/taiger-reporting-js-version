@@ -23,54 +23,30 @@
 </template>
 
 <script>
-  export default {
-    data() {
-      return {
-        fields: [
-          { key: 'id', label: 'ID' },
-          'intent',
-          { key: 'timesAsked', label: 'Times Asked' },
-          { key: 'fallbackCount', label: 'Fallback Count' },
-          { key: 'confusionRate', label: 'Confusion Rate' },
-          { key: 'dropoffRate', label: 'Dropoff Rate' },
-        ],
-        items: [
-          {
-            id: 40,
-            intent: 'Looking around',
-            timesAsked: 201,
-            fallbackCount: 54,
-            confusionRate: 26.86,
-            dropoffRate: 14.52
-          },
-          {
-            id: 21,
-            intent: 'Who are you?',
-            timesAsked: 202,
-            fallbackCount: 54,
-            confusionRate: 26.86,
-            dropoffRate: 14.52
-          },
-          {
-            id: 89,
-            intent: 'Brands',
-            timesAsked: 203,
-            fallbackCount: 54,
-            confusionRate: 26.86,
-            dropoffRate: 14.52
-          },
-          {
-            id: 38,
-            intent: 'Item A',
-            timesAsked: 203,
-            fallbackCount: 54,
-            confusionRate: 26.86,
-            dropoffRate: 14.52
-          }
-        ]
-      }
+import { mapGetters } from 'vuex'
+
+export default {
+  data() {
+    return {
+      fields: [
+        { key: 'id', label: 'ID' },
+        'intent',
+        { key: 'timesAsked', label: 'Times Asked' },
+        { key: 'fallbackCount', label: 'Fallback Count' },
+        { key: 'confusionRate', label: 'Confusion Rate' },
+        { key: 'dropoffRate', label: 'Dropoff Rate' },
+      ],
     }
+  },
+  computed: {
+    ...mapGetters('contentPerformance', {
+      items: 'contentList'
+    })
+  },
+  created () {
+    this.$store.dispatch('contentPerformance/getContentDetails')
   }
+}
 </script>
 
 <style lang="scss">

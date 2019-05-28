@@ -3,6 +3,7 @@ import Vuex from 'vuex'
 
 import chatbotUsersOverview from './modules/chatbot-users-overview'
 import chatbotPerformance from './modules/chatbot-performance'
+import contentPerformance from './modules/content-performance'
 
 Vue.use(Vuex)
 
@@ -12,6 +13,7 @@ export default new Vuex.Store({
   modules: {
     chatbotUsersOverview,
     chatbotPerformance,
+    contentPerformance,
     strict: debug
   }
 })
