@@ -36,6 +36,9 @@ const mutations = {
   },
   setCurrentPage (state, { currentPage }) {
     state.contentDetails.page = currentPage
+  },
+  setPageSize (state, { pageSize }) {
+    state.contentDetails.pageSize = pageSize
   }
 }
 
@@ -50,6 +53,10 @@ const actions = {
   },
   async updateCurrentPage ({ commit, dispatch }, { currentPage }) {
     commit('setCurrentPage', { currentPage })
+    dispatch('getContentDetails')
+  },
+  async updatePageSize ({ commit, dispatch }, { pageSize }) {
+    commit('setPageSize', { pageSize })
     dispatch('getContentDetails')
   }
 }

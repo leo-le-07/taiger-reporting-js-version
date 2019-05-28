@@ -31,7 +31,19 @@
             @change="changePagination"
           />
           <div class="rows-page-container">
-            Rows per page
+            <div class="label">Rows per page</div>
+            <div class="app-dropdown-container">
+              <b-dropdown :text="pageSize.toString()" right>
+                <b-dropdown-item
+                  v-for="value in rowsPerPageOptions"
+                  :active="pageSize === value"
+                  :key="value"
+                  @click="selectPageSize(value)"
+                >
+                  {{ value }}
+                </b-dropdown-item>
+              </b-dropdown>
+            </div>
           </div>
         </div>
       </b-col>
@@ -43,16 +55,17 @@
 import { mapGetters, mapState, mapActions } from 'vuex'
 
 export default {
-  data() {
+  data () {
     return {
+      rowsPerPageOptions: [5, 10, 15],
       fields: [
         { key: 'id', label: 'ID' },
         'intent',
         { key: 'timesAsked', label: 'Times Asked' },
         { key: 'fallbackCount', label: 'Fallback Count' },
         { key: 'confusionRate', label: 'Confusion Rate' },
-        { key: 'dropoffRate', label: 'Dropoff Rate' },
-      ],
+        { key: 'dropoffRate', label: 'Dropoff Rate' }
+      ]
     }
   },
   computed: {
@@ -71,9 +84,15 @@ export default {
     }
   },
   methods: {
-    ...mapActions('contentPerformance', ['updateCurrentPage']),
+    ...mapActions('contentPerformance', [
+      'updateCurrentPage',
+      'updatePageSize'
+    ]),
     changePagination (pageNumber) {
       this.updateCurrentPage({ currentPage: pageNumber })
+    },
+    selectPageSize (value) {
+      this.updatePageSize({ pageSize: value })
     }
   },
   created () {
@@ -143,6 +162,32 @@ export default {
     }
   }
 }
+
+.app-dropdown-container {
+  .btn.dropdown-toggle.btn-secondary {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: $fontSizeSmall14;
+    width: 40px;
+    height: 25px;
+    padding: 0;
+    border-color: $gray200;
+    background-color: $white;
+    color: $black500;
+    border-radius: 4px;
+
+    &:focus {
+      box-shadow: none;
+    }
+  }
+
+  .dropdown-menu.show {
+    li {
+      width: 100px;
+    }
+  }
+}
 </style>
 
 <style lang="scss" scoped>
@@ -157,5 +202,14 @@ h3 {
 .summary-container, .rows-page-container {
   color: $gray300;
   font-size: $fontSizeSmall12;
+}
+
+.rows-page-container {
+  display: flex;
+  align-items: center;
+
+  .label {
+    margin-right: 10px;
+  }
 }
 </style>

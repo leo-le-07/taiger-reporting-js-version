@@ -14,7 +14,20 @@
 2. Use `PascaleCasing` for Vue components.
 3. Consistantly using `camelCasing` for component props (e.g. `:isCollapsed` is acceptable now)
 
-### Start project
+### Start mock backend server
+Currently, we're using [JSON server](https://github.com/typicode/json-server) to mock backend server.
+
+* Install JSON server
+```
+npm install -g json-server
+```
+
+* Start backend server
+```
+json-server --watch src/faker/db.json --port 8081
+```
+
+### Start frontend
 * Install dependencies
 ```
 yarn install
