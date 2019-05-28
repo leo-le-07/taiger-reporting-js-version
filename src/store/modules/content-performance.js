@@ -19,7 +19,7 @@ const state = {
   contentDetails: {
     pageSize: DEFAULT_PAGE_SIZE,
     page: 1,
-    currentPage: 1,
+    totalRows: 9, // TODO: should get from server
     contentList: []
   }
 }
@@ -35,7 +35,7 @@ const mutations = {
     state.contentDetails.contentList = contentList
   },
   setCurrentPage (state, { currentPage }) {
-    state.contentDetails.currentPage = currentPage
+    state.contentDetails.page = currentPage
   }
 }
 
@@ -48,8 +48,9 @@ const actions = {
     const data = response.data
     commit('setContentDetails', { contentList: data })
   },
-  updateCurrentPage ({ commit }, { currentPage }) {
+  async updateCurrentPage ({ commit, dispatch }, { currentPage }) {
     commit('setCurrentPage', { currentPage })
+    dispatch('getContentDetails')
   }
 }
 

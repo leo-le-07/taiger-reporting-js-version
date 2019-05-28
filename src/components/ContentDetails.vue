@@ -22,8 +22,8 @@
             hide-goto-end-buttons
             next-text="Next"
             prev-text="Previous"
-            :total-rows="19"
-            :per-page="2"
+            :total-rows="totalRows"
+            :per-page="pageSize"
             :value="currentPage"
             @change="changePagination"
           />
@@ -51,7 +51,9 @@ export default {
   },
   computed: {
     ...mapState({
-      currentPage: state => state.contentPerformance.contentDetails.currentPage
+      currentPage: state => state.contentPerformance.contentDetails.page,
+      pageSize: state => state.contentPerformance.contentDetails.pageSize,
+      totalRows: state => state.contentPerformance.contentDetails.totalRows
     }),
     ...mapGetters('contentPerformance', {
       items: 'contentList'
