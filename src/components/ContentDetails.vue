@@ -18,6 +18,9 @@
           :items="items"
         />
         <div class="app-pagination-container">
+          <div class="summary-container">
+            {{ summaryPageRange }} of {{ totalRows }}
+          </div>
           <b-pagination
             hide-goto-end-buttons
             next-text="Next"
@@ -27,6 +30,9 @@
             :value="currentPage"
             @change="changePagination"
           />
+          <div class="rows-page-container">
+            Rows per page
+          </div>
         </div>
       </b-col>
     </b-row>
@@ -57,7 +63,12 @@ export default {
     }),
     ...mapGetters('contentPerformance', {
       items: 'contentList'
-    })
+    }),
+    summaryPageRange () {
+      const fromNumber = (this.currentPage - 1) * this.pageSize + 1
+      const toNumber = Math.min(this.totalRows, this.currentPage * this.pageSize)
+      return `${fromNumber} - ${toNumber}`
+    }
   },
   methods: {
     ...mapActions('contentPerformance', ['updateCurrentPage']),
@@ -102,8 +113,13 @@ export default {
 
 .app-pagination-container {
   display: flex;
-  justify-content: center;
-  margin-top: 50px;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 40px;
+
+  .pagination {
+    margin-bottom: 0;
+  }
 
   .page-item.active {
     .page-link {
@@ -136,5 +152,10 @@ export default {
 
 h3 {
   color: $black500;
+}
+
+.summary-container, .rows-page-container {
+  color: $gray300;
+  font-size: $fontSizeSmall12;
 }
 </style>
