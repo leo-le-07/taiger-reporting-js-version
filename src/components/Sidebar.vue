@@ -9,12 +9,12 @@
     </div>
     <div class="item-list" :class="{ collapsed: isCollapsed }">
       <div class="item">
-        <a href="#">
+        <router-link to="/" tag="a">
           <span class="icon">
             <font-awesome-icon :icon="overviewIcon" :size="iconSize" />
           </span>
           Overview
-        </a>
+        </router-link>
       </div>
       <div class="item">
         <a href="#">
@@ -25,12 +25,12 @@
         </a>
       </div>
       <div class="item">
-        <a href="#">
+        <router-link to="/content-performance" tag="a">
           <span class="icon">
             <font-awesome-icon :icon="contentPerformanceIcon" :size="iconSize" />
           </span>
           {{ isCollapsed ? "Content" : "Content Performance" }}
-        </a>
+        </router-link>
       </div>
       <div class="item">
         <a href="#">
@@ -140,6 +140,10 @@ export default {
       &:hover {
         color: $primary;
       }
+
+      &.router-link-exact-active {
+        color: $primary;
+      }
     }
 
     .icon {
@@ -163,6 +167,11 @@ export default {
         width: 100%;
 
         &:hover {
+          background: $primary;
+          color: $white;
+        }
+
+        &.router-link-exact-active {
           background: $primary;
           color: $white;
         }

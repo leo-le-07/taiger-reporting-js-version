@@ -20,3 +20,11 @@ h3 {
   line-height: 19px;
   color: $black;
 }
+
+a {
+  color: $primary;
+
+  &:hover {
+    text-decoration: none;
+  }
+}
