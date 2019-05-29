@@ -1,8 +1,8 @@
 <template>
   <div class="vue-container">
-    <CardPlaceholder title="Total Fallback Count">
+    <CardPlaceholder title="Total No. of Answers rated helpful">
       <div class="display-value" slot="value">
-        {{ metrics.totalFallbackCount }}
+        {{ metrics.totalNoAnswerRatedHelpful }}
       </div>
     </CardPlaceholder>
   </div>

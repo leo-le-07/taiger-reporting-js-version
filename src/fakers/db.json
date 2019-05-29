@@ -416,6 +416,7 @@
   "content-performance": {
     "totalFallbackCount": 5432,
     "overallConfusionRate": 0.3943,
-    "noMessageSentByUser": 999999
+    "noMessageSentByUser": 999999,
+    "totalNoAnswerRatedHelpful": 12345
   }
 }

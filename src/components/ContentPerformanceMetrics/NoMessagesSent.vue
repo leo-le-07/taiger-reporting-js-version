@@ -1,8 +1,6 @@
 <template>
   <div class="vue-container">
-    <CardPlaceholder
-      title="No. of Messages Sent by User"
-    >
+    <CardPlaceholder title="No. of Messages Sent by User">
       <div class="display-value" slot="value">
         {{ metrics.noMessageSentByUser }}
       </div>

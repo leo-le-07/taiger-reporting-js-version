@@ -10,6 +10,9 @@
       <b-col sm="3">
         <NoMessagesSent />
       </b-col>
+      <b-col sm="3">
+        <TotalNoAnswersRatedHelpful />
+      </b-col>
     </b-row>
   </div>
 </template>
@@ -18,12 +21,14 @@
 import TotalFallbackCount from './TotalFallbackCount'
 import OverallConfusionRate from './OverallConfusionRate'
 import NoMessagesSent from './NoMessagesSent'
+import TotalNoAnswersRatedHelpful from './TotalNoAnswersRatedHelpful'
 
 export default {
   components: {
     TotalFallbackCount,
     OverallConfusionRate,
-    NoMessagesSent
+    NoMessagesSent,
+    TotalNoAnswersRatedHelpful
   },
   created () {
     this.$store.dispatch('contentPerformance/getPerformanceData')

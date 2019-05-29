@@ -19,7 +19,8 @@ const formatMetricsData = (metrics) => {
     ...metrics,
     totalFallbackCount: formatNumber(metrics.totalFallbackCount),
     overallConfusionRate: formatPercentage(metrics.overallConfusionRate),
-    noMessageSentByUser: formatNumber(metrics.noMessageSentByUser)
+    noMessageSentByUser: formatNumber(metrics.noMessageSentByUser),
+    totalNoAnswerRatedHelpful: formatNumber(metrics.totalNoAnswerRatedHelpful)
   }
 }
 
@@ -35,7 +36,8 @@ const state = {
   metrics: {
     totalFallbackCount: 0,
     overallConfusionRate: 0,
-    noMessageSentByUser: 0
+    noMessageSentByUser: 0,
+    totalNoAnswerRatedHelpful: 0
   }
 }
 
@@ -61,11 +63,13 @@ const mutations = {
   setMetrics (state, {
     totalFallbackCount,
     overallConfusionRate,
-    noMessageSentByUser
+    noMessageSentByUser,
+    totalNoAnswerRatedHelpful
   }) {
     state.metrics.totalFallbackCount = totalFallbackCount
     state.metrics.overallConfusionRate = overallConfusionRate
     state.metrics.noMessageSentByUser = noMessageSentByUser
+    state.metrics.totalNoAnswerRatedHelpful = totalNoAnswerRatedHelpful
   }
 }
 
@@ -93,7 +97,8 @@ const actions = {
     commit('setMetrics', {
       totalFallbackCount: data.totalFallbackCount,
       overallConfusionRate: data.overallConfusionRate,
-      noMessageSentByUser: data.noMessageSentByUser
+      noMessageSentByUser: data.noMessageSentByUser,
+      totalNoAnswerRatedHelpful: data.totalNoAnswerRatedHelpful
     })
   }
 }

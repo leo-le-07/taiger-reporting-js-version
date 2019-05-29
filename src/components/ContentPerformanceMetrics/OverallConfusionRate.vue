@@ -1,8 +1,6 @@
 <template>
   <div class="vue-container">
-    <CardPlaceholder
-      title="Overall Confusion Rate"
-    >
+    <CardPlaceholder title="Overall Confusion Rate">
       <div class="display-value" slot="value">
         {{ metrics.overallConfusionRate }}
       </div>

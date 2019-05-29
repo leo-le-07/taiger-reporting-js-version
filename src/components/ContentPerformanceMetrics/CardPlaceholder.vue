@@ -60,8 +60,8 @@ export default {
   font-weight: 500;
   color: $gray500;
   display: flex;
-  align-items: center;
   margin-bottom: 10px;
+  min-height: 42px;
 }
 
 .value {
