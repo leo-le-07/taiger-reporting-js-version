@@ -30,34 +30,14 @@
             </div>
           </template>
         </b-table>
-        <div class="app-pagination-container">
-          <div class="summary-container">
-            {{ summaryPageRange }} of {{ totalRows }}
-          </div>
-          <b-pagination
-            hide-goto-end-buttons
-            next-text="Next"
-            prev-text="Previous"
-            :total-rows="totalRows"
-            :per-page="pageSize"
-            :value="currentPage"
-            @change="changePagination"
+        <div class="pagination-container">
+          <PaginationGroup
+            :totalRows="totalRows"
+            :pageSize="pageSize"
+            :currentPage="currentPage"
+            :changePagination="changePagination"
+            :selectPageSize="selectPageSize"
           />
-          <div class="rows-page-container">
-            <div class="label">Rows per page</div>
-            <div class="app-dropdown-container">
-              <b-dropdown :text="pageSize.toString()" right>
-                <b-dropdown-item
-                  v-for="value in rowsPerPageOptions"
-                  :active="pageSize === value"
-                  :key="value"
-                  @click="selectPageSize(value)"
-                >
-                  {{ value }}
-                </b-dropdown-item>
-              </b-dropdown>
-            </div>
-          </div>
         </div>
       </b-col>
     </b-row>
@@ -68,6 +48,8 @@
 import { mapGetters, mapState, mapActions } from 'vuex'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 import { faInfoCircle } from '@fortawesome/free-solid-svg-icons'
+
+import PaginationGroup from '@/components/common/PaginationGroup'
 
 export default {
   data () {
@@ -88,7 +70,8 @@ export default {
     }
   },
   components: {
-    FontAwesomeIcon
+    FontAwesomeIcon,
+    PaginationGroup
   },
   computed: {
     ...mapState({
@@ -156,39 +139,6 @@ export default {
   }
 }
 
-.app-pagination-container {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-top: 40px;
-
-  .pagination {
-    margin-bottom: 0;
-  }
-
-  .page-item.active {
-    .page-link {
-      background: $primary;
-    }
-  }
-
-  .page-item.disabled {
-    .page-link {
-      color: $gray600;
-    }
-  }
-
-  .page-link {
-    font-size: $fontSizeSmall14;
-    border-style: none;
-    color: $primary;
-
-    &:focus {
-      box-shadow: none;
-    }
-  }
-}
-
 .app-dropdown-container {
   .btn.dropdown-toggle.btn-secondary {
     display: flex;
@@ -219,18 +169,8 @@ h3 {
   color: $black500;
 }
 
-.summary-container, .rows-page-container {
-  color: $gray300;
-  font-size: $fontSizeSmall12;
-}
-
-.rows-page-container {
-  display: flex;
-  align-items: center;
-
-  .label {
-    margin-right: 10px;
-  }
+.pagination-container {
+  margin-top: 40px;
 }
 
 .action-container {

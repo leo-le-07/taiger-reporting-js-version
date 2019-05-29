@@ -28,3 +28,36 @@ a {
     text-decoration: none;
   }
 }
+
+// custom bootstrap table styling
+.app-table {
+  tbody > tr:nth-of-type(odd) {
+    background: $white10;
+  }
+}
+
+.app-thead {
+  font-size: $fontSizeSmall14;
+  color: $black500;
+
+  & > tr > th {
+    border-bottom-width: 0;
+  }
+
+  .content-details__action-header {
+    width: 300px;
+  }
+}
+
+.app-tbody-tr {
+  font-size: $fontSizeSmall14;
+  color: $black500;
+
+  .action-link {
+    margin-right: 10px;
+  }
+
+  &:hover {
+    background: $white10 !important;
+  }
+}
