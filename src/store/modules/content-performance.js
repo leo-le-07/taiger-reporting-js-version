@@ -23,7 +23,7 @@ const formatMetricsData = (metrics) => {
     },
     overallConfusionRate: {
       ...metrics.overallConfusionRate,
-      value: formatNumber(metrics.overallConfusionRate.value)
+      value: formatPercentage(metrics.overallConfusionRate.value)
     }
   }
 }
