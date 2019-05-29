@@ -412,5 +412,13 @@
       "confusionRate": 0.1001,
       "dropoffRate": 0.2001
     }
-  ]
+  ],
+  "content-performance": {
+    "totalFallbackCount": {
+      "value": 5432
+    },
+    "overallConfusionRate": {
+      "value": 0.3943
+    }
+  }
 }

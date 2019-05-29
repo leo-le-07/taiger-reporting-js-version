@@ -1,12 +1,10 @@
 <template>
   <div class="vue-container">
     <CardPlaceholder
-      title="Goal Completion"
-      :isPositivePercentage="true"
-      percentageValue="3.21"
+      title="Total Fallback Count"
     >
       <div class="display-value" slot="value">
-        46
+        {{ metrics.totalFallbackCount.value }}
       </div>
     </CardPlaceholder>
   </div>
@@ -15,16 +13,14 @@
 <script>
 import { mapGetters } from 'vuex'
 
-import CardPlaceholder from '@/components/ChatbotPerformance/CardPlaceholder.vue'
+import CardPlaceholder from '@/components/ContentPerformanceMetrics/CardPlaceholder.vue'
 
 export default {
   components: {
     CardPlaceholder
   },
   computed: {
-    ...mapGetters('chatbotPerformance', {
-      data: 'goalCompletion'
-    })
+    ...mapGetters('contentPerformance', ['metrics'])
   }
 }
 </script>

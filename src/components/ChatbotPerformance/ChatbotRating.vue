@@ -1,6 +1,6 @@
 <template>
   <div class="vue-container">
-    <PerformanceCard
+    <CardPlaceholder
       :title="data.title"
       :isPositivePercentage="data.isPositivePercentage"
       :percentageValue="data.percentageValue"
@@ -9,18 +9,18 @@
         {{ data.value }}
         <span class="sub-value">/{{ data.total }}</span>
       </div>
-    </PerformanceCard>
+    </CardPlaceholder>
   </div>
 </template>
 
 <script>
 import { mapGetters } from 'vuex'
 
-import PerformanceCard from '@/components/common/PerformanceCard.vue'
+import CardPlaceholder from '@/components/ChatbotPerformance/CardPlaceholder.vue'
 
 export default {
   components: {
-    PerformanceCard
+    CardPlaceholder
   },
   computed: {
     ...mapGetters('chatbotPerformance', {

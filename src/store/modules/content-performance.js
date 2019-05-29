@@ -2,6 +2,7 @@ import { repositoryFactory } from '@/apis/repository-factory'
 import { formatNumber, formatPercentage } from '@/utils/number-formatter'
 
 const contentDetailsRepository = repositoryFactory.get('contentDetails')
+const contentPerformanceRepository = repositoryFactory.get('contentPerformance')
 
 const formatContentData = (contentList) => {
   return contentList.map((item) => ({
@@ -13,6 +14,20 @@ const formatContentData = (contentList) => {
   }))
 }
 
+const formatMetricsData = (metrics) => {
+  return {
+    ...metrics,
+    totalFallbackCount: {
+      ...metrics.totalFallbackCount,
+      value: formatNumber(metrics.totalFallbackCount.value)
+    },
+    overallConfusionRate: {
+      ...metrics.overallConfusionRate,
+      value: formatNumber(metrics.overallConfusionRate.value)
+    }
+  }
+}
+
 const DEFAULT_PAGE_SIZE = 5
 
 const state = {
@@ -21,12 +36,23 @@ const state = {
     page: 1,
     totalRows: 9, // TODO: should get from server
     contentList: []
+  },
+  metrics: {
+    totalFallbackCount: {
+      value: 0
+    },
+    overallConfusionRate: {
+      value: 0
+    }
   }
 }
 
 const getters = {
   contentList: (state) => {
     return formatContentData(state.contentDetails.contentList)
+  },
+  metrics: (state) => {
+    return formatMetricsData(state.metrics)
   }
 }
 
@@ -39,6 +65,13 @@ const mutations = {
   },
   setPageSize (state, { pageSize }) {
     state.contentDetails.pageSize = pageSize
+  },
+  setMetrics (state, {
+    totalFallbackCount,
+    overallConfusionRate
+  }) {
+    state.metrics.totalFallbackCount = totalFallbackCount
+    state.metrics.overallConfusionRate = overallConfusionRate
   }
 }
 
@@ -58,6 +91,15 @@ const actions = {
   async updatePageSize ({ commit, dispatch }, { pageSize }) {
     commit('setPageSize', { pageSize })
     dispatch('getContentDetails')
+  },
+  async getPerformanceData ({ commit, state }) {
+    const response = await contentPerformanceRepository.get()
+    const { data } = response
+
+    commit('setMetrics', {
+      totalFallbackCount: data.totalFallbackCount,
+      overallConfusionRate: data.overallConfusionRate
+    })
   }
 }
 
