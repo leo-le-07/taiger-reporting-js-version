@@ -414,11 +414,8 @@
     }
   ],
   "content-performance": {
-    "totalFallbackCount": {
-      "value": 5432
-    },
-    "overallConfusionRate": {
-      "value": 0.3943
-    }
+    "totalFallbackCount": 5432,
+    "overallConfusionRate": 0.3943,
+    "noMessageSentByUser": 999999
   }
 }

@@ -56,7 +56,7 @@ export default {
 }
 
 .header-container {
-  font-size: $fontSizeNormal;
+  font-size: $fontSizeSmall14;
   font-weight: 500;
   color: $gray500;
   display: flex;

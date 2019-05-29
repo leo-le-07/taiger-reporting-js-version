@@ -4,7 +4,7 @@
       title="Total Fallback Count"
     >
       <div class="display-value" slot="value">
-        {{ metrics.totalFallbackCount.value }}
+        {{ metrics.totalFallbackCount }}
       </div>
     </CardPlaceholder>
   </div>

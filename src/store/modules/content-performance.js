@@ -17,14 +17,9 @@ const formatContentData = (contentList) => {
 const formatMetricsData = (metrics) => {
   return {
     ...metrics,
-    totalFallbackCount: {
-      ...metrics.totalFallbackCount,
-      value: formatNumber(metrics.totalFallbackCount.value)
-    },
-    overallConfusionRate: {
-      ...metrics.overallConfusionRate,
-      value: formatPercentage(metrics.overallConfusionRate.value)
-    }
+    totalFallbackCount: formatNumber(metrics.totalFallbackCount),
+    overallConfusionRate: formatPercentage(metrics.overallConfusionRate),
+    noMessageSentByUser: formatNumber(metrics.noMessageSentByUser)
   }
 }
 
@@ -38,12 +33,9 @@ const state = {
     contentList: []
   },
   metrics: {
-    totalFallbackCount: {
-      value: 0
-    },
-    overallConfusionRate: {
-      value: 0
-    }
+    totalFallbackCount: 0,
+    overallConfusionRate: 0,
+    noMessageSentByUser: 0
   }
 }
 
@@ -68,10 +60,12 @@ const mutations = {
   },
   setMetrics (state, {
     totalFallbackCount,
-    overallConfusionRate
+    overallConfusionRate,
+    noMessageSentByUser
   }) {
     state.metrics.totalFallbackCount = totalFallbackCount
     state.metrics.overallConfusionRate = overallConfusionRate
+    state.metrics.noMessageSentByUser = noMessageSentByUser
   }
 }
 
@@ -98,7 +92,8 @@ const actions = {
 
     commit('setMetrics', {
       totalFallbackCount: data.totalFallbackCount,
-      overallConfusionRate: data.overallConfusionRate
+      overallConfusionRate: data.overallConfusionRate,
+      noMessageSentByUser: data.noMessageSentByUser
     })
   }
 }

@@ -1,10 +1,10 @@
 <template>
   <div class="vue-container">
     <CardPlaceholder
-      title="Overall Confusion Rate"
+      title="No. of Messages Sent by User"
     >
       <div class="display-value" slot="value">
-        {{ metrics.overallConfusionRate }}
+        {{ metrics.noMessageSentByUser }}
       </div>
     </CardPlaceholder>
   </div>
