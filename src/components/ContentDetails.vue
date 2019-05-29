@@ -181,12 +181,6 @@ export default {
       box-shadow: none;
     }
   }
-
-  .dropdown-menu.show {
-    li {
-      width: 100px;
-    }
-  }
 }
 </style>
 

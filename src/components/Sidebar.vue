@@ -11,23 +11,40 @@
       <div class="item">
         <router-link to="/" tag="a">
           <span class="icon">
-            <font-awesome-icon :icon="overviewIcon" :size="iconSize" />
+            <font-awesome-icon :icon="icons.overviewIcon" :size="iconSize" />
           </span>
           Overview
         </router-link>
       </div>
-      <div class="item">
-        <a href="#">
-          <span class="icon">
-            <font-awesome-icon :icon="engagementIcon" :size="iconSize" />
+      <div class="item-group">
+        <div class="item" @click="collapses.isEngagementOpen = !collapses.isEngagementOpen">
+          <a href="#">
+            <span class="icon">
+              <font-awesome-icon :icon="icons.engagementIcon" :size="iconSize" />
+            </span>
+            Engagement
+          </a>
+          <span class="expand-collapse-icon">
+            <font-awesome-icon
+              v-show="!collapses.isEngagementOpen"
+              :icon="icons.caretDownIcon"
+            />
+            <font-awesome-icon
+              v-show="collapses.isEngagementOpen"
+              :icon="icons.caretUpIcon"
+            />
           </span>
-          Engagement
-        </a>
+        </div>
+        <div class="sub-item-group" v-show="collapses.isEngagementOpen">
+          <a class="sub-item" href="#">Users Activities</a>
+          <a class="sub-item" href="#">Deflection Rate</a>
+          <a class="sub-item" href="#">Goals</a>
+        </div>
       </div>
       <div class="item">
         <router-link to="/content-performance" tag="a">
           <span class="icon">
-            <font-awesome-icon :icon="contentPerformanceIcon" :size="iconSize" />
+            <font-awesome-icon :icon="icons.contentPerformanceIcon" :size="iconSize" />
           </span>
           {{ isCollapsed ? "Content" : "Content Performance" }}
         </router-link>
@@ -35,7 +52,7 @@
       <div class="item">
         <a href="#">
           <span class="icon">
-            <font-awesome-icon :icon="engagementIcon" :size="iconSize" />
+            <font-awesome-icon :icon="icons.engagementIcon" :size="iconSize" />
           </span>
           {{ isCollapsed ? "Satisfaction" : "User Satisfaction" }}
         </a>
@@ -43,7 +60,7 @@
       <div class="item">
         <a href="#">
           <span class="icon">
-            <font-awesome-icon :icon="formReportsIcon" :size="iconSize" />
+            <font-awesome-icon :icon="icons.formReportsIcon" :size="iconSize" />
           </span>
           {{ isCollapsed ? "Form Report" : "Form Reports" }}
         </a>
@@ -58,7 +75,9 @@ import {
   faUsers,
   faChartBar,
   faThumbsUp,
-  faAlignLeft
+  faAlignLeft,
+  faCaretDown,
+  faCaretUp
 } from '@fortawesome/free-solid-svg-icons'
 
 import ArrowBackIcon from '@/assets/arrow-back-ios-24px.svg'
@@ -68,11 +87,18 @@ export default {
   props: ['isCollapsed', 'toggleCollapsed'],
   data () {
     return {
-      overviewIcon: faDesktop,
-      engagementIcon: faUsers,
-      contentPerformanceIcon: faChartBar,
-      userSatisfactionIcon: faThumbsUp,
-      formReportsIcon: faAlignLeft
+      icons: {
+        overviewIcon: faDesktop,
+        engagementIcon: faUsers,
+        contentPerformanceIcon: faChartBar,
+        userSatisfactionIcon: faThumbsUp,
+        formReportsIcon: faAlignLeft,
+        caretDownIcon: faCaretDown,
+        caretUpIcon: faCaretUp
+      },
+      collapses: {
+        isEngagementOpen: true
+      }
     }
   },
   components: {
@@ -117,15 +143,24 @@ export default {
 
 .item-list {
   padding-left: 10px;
+  padding-right: 20px;
+
+  .item-group {
+    .item > a {
+      width: calc(100% - 10px);
+    }
+  }
 
   .item {
     display: flex;
+    justify-content: space-between;
     line-height: 35px;
     color: $gray600;
     font-size: $fontSizeNormal;
 
     &:hover {
       color: $primary;
+      cursor: pointer;
 
       svg {
         fill: $primary;
@@ -148,6 +183,21 @@ export default {
 
     .icon {
       margin-right: 15px;
+    }
+  }
+
+  .sub-item-group {
+    display: flex;
+    flex-direction: column;
+
+    .sub-item {
+      line-height: 35px;
+      color: $gray600;
+      padding-left: 50px;
+
+      &:hover {
+        color: $primary;
+      }
     }
   }
 
