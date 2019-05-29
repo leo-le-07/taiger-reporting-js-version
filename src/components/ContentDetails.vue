@@ -16,7 +16,20 @@
           tbody-tr-class="app-tbody-tr"
           :fields="fields"
           :items="items"
-        />
+        >
+          <template slot="HEAD_confusionRate" slot-scope="data">
+            <div class="confusion-rate-header-container">
+              {{ data.label }}
+              <span class="info-icon"><font-awesome-icon :icon="icons.information" /></span>
+            </div>
+          </template>
+          <template slot="action">
+            <div class="action-container">
+              <a href="#">View Flow Diagram</a>
+              <a href="#">View Conversations</a>
+            </div>
+          </template>
+        </b-table>
         <div class="app-pagination-container">
           <div class="summary-container">
             {{ summaryPageRange }} of {{ totalRows }}
@@ -53,6 +66,8 @@
 
 <script>
 import { mapGetters, mapState, mapActions } from 'vuex'
+import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
+import { faInfoCircle } from '@fortawesome/free-solid-svg-icons'
 
 export default {
   data () {
@@ -64,9 +79,16 @@ export default {
         { key: 'timesAsked', label: 'Times Asked' },
         { key: 'fallbackCount', label: 'Fallback Count' },
         { key: 'confusionRate', label: 'Confusion Rate' },
-        { key: 'dropoffRate', label: 'Dropoff Rate' }
-      ]
+        { key: 'dropoffRate', label: 'Dropoff Rate' },
+        { key: 'action', label: 'Action', thClass: 'content-details__action-header' }
+      ],
+      icons: {
+        information: faInfoCircle
+      }
     }
+  },
+  components: {
+    FontAwesomeIcon
   },
   computed: {
     ...mapState({
@@ -114,6 +136,10 @@ export default {
 
   & > tr > th {
     border-bottom-width: 0;
+  }
+
+  .content-details__action-header {
+    width: 300px;
   }
 }
 
@@ -204,6 +230,20 @@ h3 {
 
   .label {
     margin-right: 10px;
+  }
+}
+
+.action-container {
+  a {
+    margin-right: 10px;
+  }
+}
+
+.confusion-rate-header-container {
+  .info-icon {
+    color: $green500;
+    position: absolute;
+    top: 3px;
   }
 }
 </style>
