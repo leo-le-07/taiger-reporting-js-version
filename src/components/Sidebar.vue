@@ -97,7 +97,7 @@ export default {
         caretUpIcon: faCaretUp
       },
       collapses: {
-        isEngagementOpen: true
+        isEngagementOpen: false
       }
     }
   },

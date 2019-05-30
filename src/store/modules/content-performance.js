@@ -87,11 +87,11 @@ const actions = {
     const data = response.data
     commit('setContentDetails', { contentList: data })
   },
-  async updateCurrentPage ({ commit, dispatch }, { currentPage }) {
+  updateCurrentPage ({ commit, dispatch }, { currentPage }) {
     commit('setCurrentPage', { currentPage })
     dispatch('getContentDetails')
   },
-  async updatePageSize ({ commit, dispatch }, { pageSize }) {
+  updatePageSize ({ commit, dispatch }, { pageSize }) {
     commit('setPageSize', { pageSize })
     dispatch('getContentDetails')
   },
@@ -106,7 +106,7 @@ const actions = {
       totalNoAnswerRatedHelpful: data.totalNoAnswerRatedHelpful
     })
   },
-  async updateSearchContent ({ commit, dispatch }, { content }) {
+  updateSearchContent ({ commit, dispatch }, { content }) {
     commit('setSearchContent', { content })
     dispatch('getContentDetails')
   }
