@@ -30,8 +30,8 @@
           </template>
           <template slot="action">
             <div class="action-container">
-              <a href="#">View Flow Diagram</a>
-              <a href="#">View Conversations</a>
+              <TextAsLink value="View Flow Diagram" class="action-item" />
+              <TextAsLink value="View Conversations"  class="action-item" />
             </div>
           </template>
         </b-table>
@@ -54,6 +54,7 @@ import { mapGetters, mapState, mapActions } from 'vuex'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 import { faInfoCircle } from '@fortawesome/free-solid-svg-icons'
 
+import TextAsLink from '@/components/common/TextAsLink'
 import PaginationGroup from '@/components/common/PaginationGroup'
 import Search from '@/components/common/Search'
 
@@ -101,6 +102,7 @@ export default {
   },
   components: {
     FontAwesomeIcon,
+    TextAsLink,
     PaginationGroup,
     Search
   },
@@ -219,7 +221,7 @@ h3 {
 }
 
 .action-container {
-  a {
+  .action-item {
     margin-right: 10px;
   }
 }

@@ -11,6 +11,9 @@
         <slot name="value" />
       </div>
     </div>
+    <div class="footer-container">
+      <slot name="footer" />
+    </div>
   </div>
 </template>
 
@@ -78,5 +81,11 @@ export default {
   display: flex;
   align-items: center;
   padding-left: 10px;
+}
+
+.footer-container {
+  display: flex;
+  justify-content: flex-end;
+  min-height: 24px;
 }
 </style>

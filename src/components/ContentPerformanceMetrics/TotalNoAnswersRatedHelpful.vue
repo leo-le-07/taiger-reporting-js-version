@@ -4,6 +4,9 @@
       <div class="display-value" slot="value">
         {{ metrics.totalNoAnswerRatedHelpful }}
       </div>
+      <div slot="footer">
+        <TextAsLink value="View" />
+      </div>
     </CardPlaceholder>
   </div>
 </template>
@@ -11,10 +14,12 @@
 <script>
 import { mapGetters } from 'vuex'
 
-import CardPlaceholder from '@/components/ContentPerformanceMetrics/CardPlaceholder.vue'
+import TextAsLink from '@/components/common/TextAsLink'
+import CardPlaceholder from '@/components/ContentPerformanceMetrics/CardPlaceholder'
 
 export default {
   components: {
+    TextAsLink,
     CardPlaceholder
   },
   computed: {
