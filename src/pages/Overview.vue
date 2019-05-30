@@ -7,19 +7,19 @@
       <ChatbotUsersChart />
     </div>
     <div class="performance-container">
-      <ChatbotPerformance />
+      <ChatbotPerformanceMetrics />
     </div>
   </div>
 </template>
 
 <script>
 import ChatbotUsersChart from '@/components/ChatbotUsersChart.vue'
-import ChatbotPerformance from '@/components/ChatbotPerformance/index.vue'
+import ChatbotPerformanceMetrics from '@/components/ChatbotPerformanceMetrics/index.vue'
 
 export default {
   components: {
     ChatbotUsersChart,
-    ChatbotPerformance
+    ChatbotPerformanceMetrics
   }
 }
 </script>

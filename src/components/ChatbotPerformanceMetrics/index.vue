@@ -7,35 +7,35 @@
       </b-col>
     </b-row>
     <b-row>
-      <b-col>
+      <b-col sm="4">
         <TotalUsers />
       </b-col>
-      <b-col>
+      <b-col sm="4">
         <ChatbotRating />
       </b-col>
-      <b-col>
+      <b-col sm="4">
         <AvgSessionDuration />
       </b-col>
     </b-row>
     <b-row>
-      <b-col>
+      <b-col sm="4">
         <GoalCompletion />
       </b-col>
-      <b-col>
+      <b-col sm="4">
         <GoalConversionRate />
       </b-col>
-      <b-col>
+      <b-col sm="4">
         <DeflectionRate />
       </b-col>
     </b-row>
     <b-row>
-      <b-col>
+      <b-col sm="4">
         <TotalFallbackCount />
       </b-col>
-      <b-col>
+      <b-col sm="4">
         <OverallConfusion />
       </b-col>
-      <b-col>
+      <b-col sm="4">
         <ChatbotActivation />
       </b-col>
     </b-row>
@@ -43,15 +43,15 @@
 </template>
 
 <script>
-import TotalUsers from '@/components/ChatbotPerformance/TotalUsers.vue'
-import ChatbotRating from '@/components/ChatbotPerformance/ChatbotRating.vue'
-import AvgSessionDuration from '@/components/ChatbotPerformance/AvgSessionDuration.vue'
-import GoalCompletion from '@/components/ChatbotPerformance/GoalCompletion.vue'
-import GoalConversionRate from '@/components/ChatbotPerformance/GoalConversionRate.vue'
-import DeflectionRate from '@/components/ChatbotPerformance/DeflectionRate.vue'
-import TotalFallbackCount from '@/components/ChatbotPerformance/TotalFallbackCount.vue'
-import OverallConfusion from '@/components/ChatbotPerformance/OverallConfusion.vue'
-import ChatbotActivation from '@/components/ChatbotPerformance/ChatbotActivation.vue'
+import TotalUsers from '@/components/ChatbotPerformanceMetrics/TotalUsers'
+import ChatbotRating from '@/components/ChatbotPerformanceMetrics/ChatbotRating'
+import AvgSessionDuration from '@/components/ChatbotPerformanceMetrics/AvgSessionDuration'
+import GoalCompletion from '@/components/ChatbotPerformanceMetrics/GoalCompletion'
+import GoalConversionRate from '@/components/ChatbotPerformanceMetrics/GoalConversionRate'
+import DeflectionRate from '@/components/ChatbotPerformanceMetrics/DeflectionRate'
+import TotalFallbackCount from '@/components/ChatbotPerformanceMetrics/TotalFallbackCount'
+import OverallConfusion from '@/components/ChatbotPerformanceMetrics/OverallConfusion'
+import ChatbotActivation from '@/components/ChatbotPerformanceMetrics/ChatbotActivation'
 
 export default {
   components: {

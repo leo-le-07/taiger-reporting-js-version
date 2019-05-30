@@ -1,12 +1,12 @@
 <template>
   <div class="vue-container">
     <CardPlaceholder
-      :title="data.title"
-      :isPositivePercentage="data.isPositivePercentage"
-      :percentageValue="data.percentageValue"
+      title="Goal Completion"
+      :isPositivePercentage="true"
+      percentageValue="3.21"
     >
       <div class="display-value" slot="value">
-        {{ data.value }}
+        46
       </div>
     </CardPlaceholder>
   </div>
@@ -15,7 +15,7 @@
 <script>
 import { mapGetters } from 'vuex'
 
-import CardPlaceholder from '@/components/ChatbotPerformance/CardPlaceholder.vue'
+import CardPlaceholder from '@/components/ChatbotPerformanceMetrics/CardPlaceholder.vue'
 
 export default {
   components: {
@@ -23,7 +23,7 @@ export default {
   },
   computed: {
     ...mapGetters('chatbotPerformance', {
-      data: 'avgSessionDuration'
+      data: 'goalCompletion'
     })
   }
 }

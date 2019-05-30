@@ -15,7 +15,7 @@
 <script>
 import { mapGetters } from 'vuex'
 
-import CardPlaceholder from '@/components/ChatbotPerformance/CardPlaceholder.vue'
+import CardPlaceholder from '@/components/ChatbotPerformanceMetrics/CardPlaceholder.vue'
 
 export default {
   components: {
@@ -23,7 +23,7 @@ export default {
   },
   computed: {
     ...mapGetters('chatbotPerformance', {
-      data: 'overallConfusion'
+      data: 'goalConversionRate'
     })
   }
 }

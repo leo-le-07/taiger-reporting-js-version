@@ -7,7 +7,6 @@
     >
       <div class="display-value" slot="value">
         {{ data.value }}
-        <span class="sub-value">/{{ data.total }}</span>
       </div>
     </CardPlaceholder>
   </div>
@@ -16,7 +15,7 @@
 <script>
 import { mapGetters } from 'vuex'
 
-import CardPlaceholder from '@/components/ChatbotPerformance/CardPlaceholder.vue'
+import CardPlaceholder from '@/components/ChatbotPerformanceMetrics/CardPlaceholder.vue'
 
 export default {
   components: {
@@ -24,14 +23,8 @@ export default {
   },
   computed: {
     ...mapGetters('chatbotPerformance', {
-      data: 'chatbotRating'
+      data: 'totalFallbackCount'
     })
   }
 }
 </script>
-
-<style lang="scss" scoped>
-.sub-value {
-  font-size: 16px;
-}
-</style>
