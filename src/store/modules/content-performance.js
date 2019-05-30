@@ -31,7 +31,8 @@ const state = {
     pageSize: DEFAULT_PAGE_SIZE,
     page: 1,
     totalRows: 9, // TODO: should get from server
-    contentList: []
+    contentList: [],
+    searchContent: ''
   },
   metrics: {
     totalFallbackCount: 0,
@@ -70,6 +71,9 @@ const mutations = {
     state.metrics.overallConfusionRate = overallConfusionRate
     state.metrics.noMessageSentByUser = noMessageSentByUser
     state.metrics.totalNoAnswerRatedHelpful = totalNoAnswerRatedHelpful
+  },
+  setSearchContent (state, { content }) {
+    state.contentDetails.searchContent = content
   }
 }
 
@@ -77,7 +81,8 @@ const actions = {
   async getContentDetails ({ commit, state }) {
     const response = await contentDetailsRepository.get({
       _page: state.contentDetails.page,
-      _limit: state.contentDetails.pageSize
+      _limit: state.contentDetails.pageSize,
+      q: encodeURIComponent(state.contentDetails.searchContent)
     })
     const data = response.data
     commit('setContentDetails', { contentList: data })
@@ -100,6 +105,10 @@ const actions = {
       noMessageSentByUser: data.noMessageSentByUser,
       totalNoAnswerRatedHelpful: data.totalNoAnswerRatedHelpful
     })
+  },
+  async updateSearchContent ({ commit, dispatch }, { content }) {
+    commit('setSearchContent', { content })
+    dispatch('getContentDetails')
   }
 }
 

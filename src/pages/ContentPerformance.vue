@@ -13,7 +13,7 @@
 </template>
 
 <script>
-import ContentDetails from '@/components/ContentDetails.vue'
+import ContentDetails from '@/components/ContentDetails'
 import ContentPerformanceMetrics from '@/components/ContentPerformanceMetrics/index.vue'
 
 export default {

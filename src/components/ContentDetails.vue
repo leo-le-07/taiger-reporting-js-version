@@ -3,6 +3,9 @@
     <b-row>
       <b-col class="header-container">
         <h3>Content Details</h3>
+        <div class="search-container">
+          <Search :onChange="updateSearch" />
+        </div>
       </b-col>
     </b-row>
     <b-row>
@@ -50,6 +53,7 @@ import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 import { faInfoCircle } from '@fortawesome/free-solid-svg-icons'
 
 import PaginationGroup from '@/components/common/PaginationGroup'
+import Search from '@/components/common/Search'
 
 export default {
   data () {
@@ -71,7 +75,8 @@ export default {
   },
   components: {
     FontAwesomeIcon,
-    PaginationGroup
+    PaginationGroup,
+    Search
   },
   computed: {
     ...mapState({
@@ -91,13 +96,17 @@ export default {
   methods: {
     ...mapActions('contentPerformance', [
       'updateCurrentPage',
-      'updatePageSize'
+      'updatePageSize',
+      'updateSearchContent'
     ]),
     changePagination (pageNumber) {
       this.updateCurrentPage({ currentPage: pageNumber })
     },
     selectPageSize (value) {
       this.updatePageSize({ pageSize: value })
+    },
+    updateSearch (content) {
+      this.updateSearchContent({ content })
     }
   },
   created () {
@@ -162,6 +171,9 @@ export default {
 
 <style lang="scss" scoped>
 .header-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   margin-bottom: 10px;
 }
 
