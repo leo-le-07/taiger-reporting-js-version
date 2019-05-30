@@ -46,7 +46,7 @@ export default {
 
 <style lang="scss" scoped>
 .vue-container {
-  padding: 20px;
+  padding: 20px 20px 5px;
   border: 1px solid $borderGray;
   border-radius: 4px;
   cursor: pointer;
@@ -87,5 +87,6 @@ export default {
   display: flex;
   justify-content: flex-end;
   min-height: 24px;
+  font-size: $fontSizeSmall14;
 }
 </style>
