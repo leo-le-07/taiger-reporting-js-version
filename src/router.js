@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import Overview from '@/views/Overview.vue'
-import ContentPerformance from '@/views/ContentPerformance.vue'
+import Overview from '@/pages/Overview'
+import ContentPerformance from '@/pages/ContentPerformance'
 
 Vue.use(Router)
 
