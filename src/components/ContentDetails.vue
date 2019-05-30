@@ -19,6 +19,8 @@
           tbody-tr-class="app-tbody-tr"
           :fields="fields"
           :items="items"
+          no-local-sorting
+          @sort-changed="sortingChanged"
         >
           <template slot="HEAD_confusionRate" slot-scope="data">
             <div class="confusion-rate-header-container">
@@ -58,19 +60,43 @@ import Search from '@/components/common/Search'
 export default {
   data () {
     return {
-      rowsPerPageOptions: [5, 10, 15],
       fields: [
-        { key: 'id', label: 'ID' },
+        {
+          key: 'id',
+          label: 'ID'
+        },
         'intent',
-        { key: 'timesAsked', label: 'Times Asked' },
-        { key: 'fallbackCount', label: 'Fallback Count' },
-        { key: 'confusionRate', label: 'Confusion Rate' },
-        { key: 'dropoffRate', label: 'Dropoff Rate' },
-        { key: 'action', label: 'Action', thClass: 'content-details__action-header' }
+        {
+          key: 'timesAsked',
+          label: 'Times Asked',
+          sortable: true
+        },
+        {
+          key: 'fallbackCount',
+          label: 'Fallback Count',
+          sortable: true
+        },
+        {
+          key: 'confusionRate',
+          label: 'Confusion Rate',
+          sortable: true
+        },
+        {
+          key: 'dropoffRate',
+          label: 'Dropoff Rate',
+          sortable: true
+        },
+        {
+          key: 'action',
+          label: 'Action',
+          thClass: 'content-details__action-header'
+        }
       ],
       icons: {
         information: faInfoCircle
-      }
+      },
+      sortBy: null,
+      sortDesc: true
     }
   },
   components: {
@@ -97,7 +123,8 @@ export default {
     ...mapActions('contentPerformance', [
       'updateCurrentPage',
       'updatePageSize',
-      'updateSearchContent'
+      'updateSearchContent',
+      'updateSorting'
     ]),
     changePagination (pageNumber) {
       this.updateCurrentPage({ currentPage: pageNumber })
@@ -107,6 +134,12 @@ export default {
     },
     updateSearch (content) {
       this.updateSearchContent({ content })
+    },
+    sortingChanged (context) {
+      this.updateSorting({
+        sortBy: context.sortBy,
+        sortDesc: context.sortDesc
+      })
     }
   },
   created () {

@@ -32,7 +32,9 @@ const state = {
     page: 1,
     totalRows: 9, // TODO: should get from server
     contentList: [],
-    searchContent: ''
+    searchContent: '',
+    sortBy: null,
+    sortDesc: true
   },
   metrics: {
     totalFallbackCount: 0,
@@ -74,6 +76,12 @@ const mutations = {
   },
   setSearchContent (state, { content }) {
     state.contentDetails.searchContent = content
+  },
+  setSortBy (state, { sortBy }) {
+    state.contentDetails.sortBy = sortBy
+  },
+  setSortDesc (state, { sortDesc }) {
+    state.contentDetails.sortDesc = sortDesc
   }
 }
 
@@ -82,7 +90,9 @@ const actions = {
     const response = await contentDetailsRepository.get({
       _page: state.contentDetails.page,
       _limit: state.contentDetails.pageSize,
-      q: encodeURIComponent(state.contentDetails.searchContent)
+      q: encodeURIComponent(state.contentDetails.searchContent),
+      _sort: state.contentDetails.sortBy,
+      _order: state.contentDetails.sortDesc ? 'desc' : 'asc'
     })
     const data = response.data
     commit('setContentDetails', { contentList: data })
@@ -108,6 +118,11 @@ const actions = {
   },
   updateSearchContent ({ commit, dispatch }, { content }) {
     commit('setSearchContent', { content })
+    dispatch('getContentDetails')
+  },
+  updateSorting ({ commit, dispatch }, { sortBy, sortDesc }) {
+    commit('setSortBy', { sortBy })
+    commit('setSortDesc', { sortDesc })
     dispatch('getContentDetails')
   }
 }
