@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-const baseDomain = 'http://localhost:8081'
+const baseDomain = process.env.VUE_APP_API_ENDPOINT
 
 const baseURL = `${baseDomain}`
 
