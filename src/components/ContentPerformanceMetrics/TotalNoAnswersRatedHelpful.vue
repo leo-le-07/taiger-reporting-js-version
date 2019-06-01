@@ -30,7 +30,7 @@ export default {
   },
   methods: {
     openAnswerRatingModal () {
-      this.$bvModal.show("answer-rating-modal")
+      this.$bvModal.show('answer-rating-modal')
     }
   }
 }

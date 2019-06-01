@@ -20,7 +20,7 @@
 </template>
 
 <script>
-import { mapState, mapActions } from 'vuex'
+import { mapState } from 'vuex'
 
 import Modal from '@/components/common/Modal'
 
