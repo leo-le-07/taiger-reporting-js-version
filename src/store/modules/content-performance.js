@@ -43,10 +43,7 @@ const state = {
     noMessageSentByUser: 0,
     totalNoAnswerRatedHelpful: 0
   },
-  answerRating: {
-    isDialogOpen: true,
-    resultList: []
-  }
+  answerRatingList: []
 }
 
 const getters = {
@@ -88,11 +85,8 @@ const mutations = {
   setSortDesc (state, { sortDesc }) {
     state.contentDetails.sortDesc = sortDesc
   },
-  setAnsweringRatingOpen (state, { value }) {
-    state.answerRating.isDialogOpen = value
-  },
   setListAnswerRating (state, { resultList }) {
-    state.answerRating.resultList = resultList
+    state.answerRatingList = resultList
   }
 }
 

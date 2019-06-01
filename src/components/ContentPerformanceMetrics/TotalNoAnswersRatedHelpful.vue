@@ -15,7 +15,7 @@
 </template>
 
 <script>
-import { mapGetters, mapMutations } from 'vuex'
+import { mapGetters } from 'vuex'
 
 import TextAsLink from '@/components/common/TextAsLink'
 import CardPlaceholder from '@/components/ContentPerformanceMetrics/CardPlaceholder'
@@ -29,11 +29,8 @@ export default {
     ...mapGetters('contentPerformance', ['metrics'])
   },
   methods: {
-    ...mapMutations('contentPerformance', [
-      'setAnsweringRatingOpen'
-    ]),
     openAnswerRatingModal () {
-      this.setAnsweringRatingOpen({ value: true })
+      this.$bvModal.show("answer-rating-modal")
     }
   }
 }

@@ -1,44 +1,28 @@
 <template>
-  <b-modal
-    title="Answer Rating"
-    dialog-class="app-modal-dialog"
-    header-class="app-modal-header"
-    body-class="app-modal-body"
-    no-close-on-backdrop
-    no-close-on-esc
-    scrollable
-    size="lg"
-    v-model="isAnswerRatingOpen"
-  >
-    <template slot="default">
-      <b-table
-        striped
-        hover
-        table-class="app-table"
-        thead-class="app-thead"
-        tbody-tr-class="app-tbody-tr"
-        :fields="fields"
-        :items="answerRatings"
-      />
-    </template>
-    <template slot="modal-footer" slot-scope="{ close }">
-      <b-button
-        class="app-modal-footer-button"
-        variant="outline-secondary"
-      >
-        Export
-      </b-button>
-      <b-button
-        class="app-modal-footer-button"
-        variant="outline-secondary"
-        @click="close()"
-      >Close</b-button>
-    </template>
-  </b-modal>
+  <div class="vue-container">
+    <Modal
+      title="Answer Rating"
+      id="answer-rating-modal"
+    >
+      <template slot="content">
+        <b-table
+          striped
+          hover
+          table-class="app-table"
+          thead-class="app-thead"
+          tbody-tr-class="app-tbody-tr"
+          :fields="fields"
+          :items="answerRatings"
+        />
+      </template>
+    </Modal>
+  </div>
 </template>
 
 <script>
 import { mapState, mapActions } from 'vuex'
+
+import Modal from '@/components/common/Modal'
 
 import { formatNumber } from '@/utils/number-formatter'
 
@@ -75,21 +59,13 @@ export default {
       ]
     }
   },
+  components: {
+    Modal
+  },
   computed: {
     ...mapState({
-      answerRatings: state => state.contentPerformance.answerRating.resultList
-    }),
-    isAnswerRatingOpen: {
-      get () {
-        return this.$store.state.contentPerformance.answerRating.isDialogOpen
-      },
-      set (value) {
-        this.$store.commit('contentPerformance/setAnsweringRatingOpen', { value })
-      }
-    }
+      answerRatings: state => state.contentPerformance.answerRatingList
+    })
   }
 }
 </script>
-
-<style lang="scss">
-</style>
