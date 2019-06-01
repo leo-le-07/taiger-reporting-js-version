@@ -17,11 +17,15 @@
           table-class="app-table"
           thead-class="app-thead"
           tbody-tr-class="app-tbody-tr"
+          :busy="isLoading"
           :fields="fields"
           :items="items"
           no-local-sorting
           @sort-changed="sortingChanged"
         >
+          <div slot="table-busy">
+            <Loading />
+          </div>
           <template slot="HEAD_confusionRate" slot-scope="data">
             <div class="confusion-rate-header-container">
               {{ data.label }}
@@ -57,6 +61,7 @@ import { faInfoCircle } from '@fortawesome/free-solid-svg-icons'
 import TextAsLink from '@/components/common/TextAsLink'
 import PaginationGroup from '@/components/common/PaginationGroup'
 import Search from '@/components/common/Search'
+import Loading from '@/components/common/Loading'
 
 export default {
   data () {
@@ -104,11 +109,13 @@ export default {
     FontAwesomeIcon,
     TextAsLink,
     PaginationGroup,
-    Search
+    Search,
+    Loading
   },
   computed: {
     ...mapState({
       currentPage: state => state.contentPerformance.contentDetails.page,
+      isLoading: state => state.contentPerformance.contentDetails.isLoading,
       pageSize: state => state.contentPerformance.contentDetails.pageSize,
       totalRows: state => state.contentPerformance.contentDetails.totalRows
     }),

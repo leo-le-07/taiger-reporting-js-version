@@ -29,6 +29,7 @@ const DEFAULT_PAGE_SIZE = 5
 
 const state = {
   contentDetails: {
+    isLoading: false,
     pageSize: DEFAULT_PAGE_SIZE,
     page: 1,
     totalRows: 9, // TODO: should get from server
@@ -65,6 +66,9 @@ const mutations = {
   setPageSize (state, { pageSize }) {
     state.contentDetails.pageSize = pageSize
   },
+  setContentDetailsLoading (state, { value }) {
+    state.contentDetails.isLoading = value
+  },
   setMetrics (state, {
     totalFallbackCount,
     overallConfusionRate,
@@ -92,6 +96,8 @@ const mutations = {
 
 const actions = {
   async getContentDetails ({ commit, state }) {
+    commit('setContentDetailsLoading', { value: true })
+
     const response = await contentDetailsRepository.get({
       _page: state.contentDetails.page,
       _limit: state.contentDetails.pageSize,
@@ -100,7 +106,9 @@ const actions = {
       _order: state.contentDetails.sortDesc ? 'desc' : 'asc'
     })
     const data = response.data
+
     commit('setContentDetails', { contentList: data })
+    commit('setContentDetailsLoading', { value: false })
   },
   updateCurrentPage ({ commit, dispatch }, { currentPage }) {
     commit('setCurrentPage', { currentPage })
