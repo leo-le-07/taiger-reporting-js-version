@@ -3,6 +3,7 @@ import { formatNumber, formatPercentage } from '@/utils/number-formatter'
 
 const contentDetailsRepository = repositoryFactory.get('contentDetails')
 const contentPerformanceRepository = repositoryFactory.get('contentPerformance')
+const answerRatingRepository = repositoryFactory.get('answerRating')
 
 const formatContentData = (contentList) => {
   return contentList.map((item) => ({
@@ -41,6 +42,10 @@ const state = {
     overallConfusionRate: 0,
     noMessageSentByUser: 0,
     totalNoAnswerRatedHelpful: 0
+  },
+  answerRating: {
+    isDialogOpen: true,
+    resultList: []
   }
 }
 
@@ -82,6 +87,12 @@ const mutations = {
   },
   setSortDesc (state, { sortDesc }) {
     state.contentDetails.sortDesc = sortDesc
+  },
+  setAnsweringRatingOpen (state, { value }) {
+    state.answerRating.isDialogOpen = value
+  },
+  setListAnswerRating (state, { resultList }) {
+    state.answerRating.resultList = resultList
   }
 }
 
@@ -124,6 +135,12 @@ const actions = {
     commit('setSortBy', { sortBy })
     commit('setSortDesc', { sortDesc })
     dispatch('getContentDetails')
+  },
+  async getAnswerRatingList ({ commit }) {
+    const response = await answerRatingRepository.get()
+    const { data } = response
+
+    commit('setListAnswerRating', { resultList: data })
   }
 }
 

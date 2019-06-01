@@ -418,5 +418,91 @@
     "overallConfusionRate": 0.3943,
     "noMessageSentByUser": 999999,
     "totalNoAnswerRatedHelpful": 12345
-  }
+  },
+  "answer-ratings": [
+    {
+      "id": 1,
+      "question": "Products",
+      "positiveRating": 72,
+      "negativeRating": 20,
+      "noRating": 30
+    },
+    {
+      "id": 10,
+      "question": "What is this?",
+      "positiveRating": 72,
+      "negativeRating": 20,
+      "noRating": 30
+    },
+    {
+      "id": 11,
+      "question": "Who are you?",
+      "positiveRating": 72,
+      "negativeRating": 20,
+      "noRating": 30
+    },
+    {
+      "id": 21,
+      "question": "Brands",
+      "positiveRating": 72,
+      "negativeRating": 20,
+      "noRating": 30
+    },
+    {
+      "id": 15,
+      "question": "Import item",
+      "positiveRating": 72,
+      "negativeRating": 20,
+      "noRating": 30
+    },
+    {
+      "id": 13,
+      "question": "Export item",
+      "positiveRating": 72,
+      "negativeRating": 20,
+      "noRating": 30
+    },
+    {
+      "id": 1,
+      "question": "Products",
+      "positiveRating": 7200,
+      "negativeRating": 20,
+      "noRating": 30
+    },
+    {
+      "id": 10,
+      "question": "What is this?",
+      "positiveRating": 72,
+      "negativeRating": 20,
+      "noRating": 30
+    },
+    {
+      "id": 11,
+      "question": "Who are you?",
+      "positiveRating": 29000,
+      "negativeRating": 20,
+      "noRating": 30
+    },
+    {
+      "id": 21,
+      "question": "Brands",
+      "positiveRating": 10000,
+      "negativeRating": 20,
+      "noRating": 30
+    },
+    {
+      "id": 15,
+      "question": "Import item",
+      "positiveRating": 500,
+      "negativeRating": 20,
+      "noRating": 30
+    },
+    {
+      "id": 13,
+      "question": "Export item",
+      "positiveRating": 4000,
+      "negativeRating": 20,
+      "noRating": 30
+    }
+  ]
 }

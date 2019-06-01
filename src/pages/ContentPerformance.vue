@@ -9,17 +9,23 @@
     <div class="content-details-container">
       <ContentDetails />
     </div>
+    <AnswerRatingModal />
   </div>
 </template>
 
 <script>
 import ContentDetails from '@/components/ContentDetails'
-import ContentPerformanceMetrics from '@/components/ContentPerformanceMetrics/index.vue'
+import ContentPerformanceMetrics from '@/components/ContentPerformanceMetrics/index'
+import AnswerRatingModal from '@/components/AnswerRatingModal'
 
 export default {
   components: {
     ContentDetails,
-    ContentPerformanceMetrics
+    ContentPerformanceMetrics,
+    AnswerRatingModal
+  },
+  created () {
+    this.$store.dispatch('contentPerformance/getAnswerRatingList')
   }
 }
 </script>
