@@ -44,7 +44,7 @@
             :totalRows="totalRows"
             :pageSize="pageSize"
             :currentPage="currentPage"
-            :changePagination="changePagination"
+            :changePage="changePage"
             :selectPageSize="selectPageSize"
           />
         </div>
@@ -130,7 +130,7 @@ export default {
       'updateSearchContent',
       'updateSorting'
     ]),
-    changePagination (pageNumber) {
+    changePage (pageNumber) {
       this.updateCurrentPage({ currentPage: pageNumber })
     },
     selectPageSize (value) {

@@ -10,7 +10,7 @@
       :total-rows="totalRows"
       :per-page="pageSize"
       :value="currentPage"
-      @change="changePagination"
+      @change="changePage"
     />
     <div class="rows-page-container">
       <div class="label">Rows per page</div>
@@ -36,7 +36,7 @@ export default {
     'totalRows',
     'pageSize',
     'currentPage',
-    'changePagination',
+    'changePage',
     'selectPageSize'
   ],
   data () {
