@@ -121,12 +121,7 @@ export default {
     }),
     ...mapGetters('contentPerformance', {
       items: 'contentList'
-    }),
-    summaryPageRange () {
-      const fromNumber = (this.currentPage - 1) * this.pageSize + 1
-      const toNumber = Math.min(this.totalRows, this.currentPage * this.pageSize)
-      return `${fromNumber} - ${toNumber}`
-    }
+    })
   },
   methods: {
     ...mapActions('contentPerformance', [
