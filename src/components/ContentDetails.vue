@@ -3,9 +3,9 @@
     <b-row>
       <b-col class="header-container">
         <h3>Content Details</h3>
-        <div class="search-container">
+        <!-- <div class="search-container">
           <Search :onChange="updateSearch" />
-        </div>
+        </div> -->
       </b-col>
     </b-row>
     <b-row>
@@ -61,7 +61,7 @@ import { faInfoCircle } from '@fortawesome/free-solid-svg-icons'
 
 import TextAsLink from '@/components/common/TextAsLink'
 import PaginationGroup from '@/components/common/PaginationGroup'
-import Search from '@/components/common/Search'
+// import Search from '@/components/common/Search'
 import Loading from '@/components/common/Loading'
 
 export default {
@@ -110,7 +110,7 @@ export default {
     FontAwesomeIcon,
     TextAsLink,
     PaginationGroup,
-    Search,
+    // Search,
     Loading
   },
   computed: {
