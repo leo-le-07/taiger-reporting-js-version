@@ -26,7 +26,7 @@ export default {
 
 <style lang="scss" scoped>
 .chart-container {
-  border: 1px solid $borderGray;
+  border: 1px solid $borderGray500;
   border-radius: 4px;
   padding: 20px;
 }

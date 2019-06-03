@@ -8,6 +8,8 @@
         <b-table
           striped
           hover
+          bordered
+          borderless
           table-class="app-table"
           thead-class="app-thead"
           tbody-tr-class="app-tbody-tr"

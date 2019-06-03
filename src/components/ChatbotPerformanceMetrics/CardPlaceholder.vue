@@ -53,7 +53,7 @@ export default {
 <style lang="scss" scoped>
 .vue-container {
   padding: 20px;
-  border: 1px solid $borderGray;
+  border: 1px solid $borderGray500;
   border-radius: 4px;
   cursor: pointer;
   margin-top: 10px;

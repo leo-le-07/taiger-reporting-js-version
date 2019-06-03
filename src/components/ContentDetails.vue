@@ -14,6 +14,7 @@
           striped
           hover
           bordered
+          borderless
           table-class="app-table"
           thead-class="app-thead"
           tbody-tr-class="app-tbody-tr"
@@ -153,38 +154,6 @@ export default {
 </script>
 
 <style lang="scss">
-.app-table {
-  tbody > tr:nth-of-type(odd) {
-    background: $white10;
-  }
-}
-
-.app-thead {
-  font-size: $fontSizeSmall14;
-  color: $black500;
-
-  & > tr > th {
-    border-bottom-width: 0;
-  }
-
-  .content-details__action-header {
-    width: 300px;
-  }
-}
-
-.app-tbody-tr {
-  font-size: $fontSizeSmall14;
-  color: $black500;
-
-  .action-link {
-    margin-right: 10px;
-  }
-
-  &:hover {
-    background: $white10 !important;
-  }
-}
-
 .app-dropdown-container {
   .btn.dropdown-toggle.btn-secondary {
     display: flex;

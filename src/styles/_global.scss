@@ -97,6 +97,7 @@ a {
 .app-tbody-tr {
   font-size: $fontSizeSmall14;
   color: $black500;
+  border: 1px solid $borderGray100;
 
   .action-link {
     margin-right: 10px;
