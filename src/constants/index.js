@@ -15,3 +15,21 @@ export const timeTypeFilters = {
   WEEK: 'week',
   MONTH: 'month'
 }
+
+export const routeConstants = {
+  overview: {
+    path: '/',
+    name: 'overview',
+    title: 'Overview'
+  },
+  contentPerformance: {
+    path: '/content-performance',
+    name: 'content-performance',
+    title: 'Content Performance'
+  },
+  contentFlowDiagram: {
+    path: ':id/flow-diagram',
+    name: 'flow-diagram',
+    title: 'Flow Diagram'
+  }
+}

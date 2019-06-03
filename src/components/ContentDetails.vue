@@ -33,9 +33,19 @@
               <span class="info-icon"><font-awesome-icon :icon="icons.information" /></span>
             </div>
           </template>
-          <template slot="action">
+          <template slot="action" slot-scope="data">
             <div class="action-container">
-              <TextAsLink value="View Flow Diagram" class="action-item" />
+              <router-link
+                tag="a"
+                :to="{
+                  name: routeConstants.contentFlowDiagram.name,
+                  params: { id: data.item.id }
+                }"
+                append
+                class="action-item"
+              >
+                View Flow Diagram
+              </router-link>
               <TextAsLink value="View Conversations"  class="action-item" />
             </div>
           </template>
@@ -63,6 +73,8 @@ import TextAsLink from '@/components/common/TextAsLink'
 import PaginationGroup from '@/components/common/PaginationGroup'
 // import Search from '@/components/common/Search'
 import Loading from '@/components/common/Loading'
+
+import { routeConstants } from '@/constants'
 
 export default {
   data () {
@@ -103,7 +115,8 @@ export default {
         information: faInfoCircle
       },
       sortBy: null,
-      sortDesc: true
+      sortDesc: true,
+      routeConstants
     }
   },
   components: {

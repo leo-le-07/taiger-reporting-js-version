@@ -1,19 +1,24 @@
 <template>
   <div class="home">
-    <div class="header">
-      <h1>Content Performance</h1>
+    <div class="main-content-container" v-if="selectedId === null">
+      <div class="header">
+        <h1>Content Performance</h1>
+      </div>
+      <div class="metrics-container">
+        <ContentPerformanceMetrics />
+      </div>
+      <div class="content-details-container">
+        <ContentDetails />
+      </div>
+      <AnswerRatingModal />
     </div>
-    <div class="metrics-container">
-      <ContentPerformanceMetrics />
-    </div>
-    <div class="content-details-container">
-      <ContentDetails />
-    </div>
-    <AnswerRatingModal />
+    <router-view></router-view>
   </div>
 </template>
 
 <script>
+import { mapState } from 'vuex'
+
 import ContentDetails from '@/components/ContentDetails'
 import ContentPerformanceMetrics from '@/components/ContentPerformanceMetrics/index'
 import AnswerRatingModal from '@/components/AnswerRatingModal'
@@ -23,6 +28,11 @@ export default {
     ContentDetails,
     ContentPerformanceMetrics,
     AnswerRatingModal
+  },
+  computed: {
+    ...mapState({
+      selectedId: state => state.contentFlowDiagram.id
+    })
   },
   created () {
     this.$store.dispatch('contentPerformance/getAnswerRatingList')

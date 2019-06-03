@@ -9,7 +9,7 @@
     </div>
     <div class="item-list" :class="{ collapsed: isCollapsed }">
       <div class="item">
-        <router-link to="/" tag="a">
+        <router-link :to="routeConstants.overview.path" tag="a">
           <span class="icon">
             <font-awesome-icon :icon="icons.overviewIcon" :size="iconSize" />
           </span>
@@ -42,7 +42,7 @@
         </div>
       </div>
       <div class="item">
-        <router-link to="/content-performance" tag="a">
+        <router-link :to="routeConstants.contentPerformance.path" tag="a">
           <span class="icon">
             <font-awesome-icon :icon="icons.contentPerformanceIcon" :size="iconSize" />
           </span>
@@ -82,6 +82,7 @@ import {
 
 import ArrowBackIcon from '@/assets/arrow-back-ios-24px.svg'
 import HambergerMenuIcon from '@/assets/hamberger-menu.svg'
+import { routeConstants } from '@/constants'
 
 export default {
   props: ['isCollapsed', 'toggleCollapsed'],
@@ -98,7 +99,8 @@ export default {
       },
       collapses: {
         isEngagementOpen: false
-      }
+      },
+      routeConstants
     }
   },
   components: {
