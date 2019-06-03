@@ -183,6 +183,8 @@ export default {
 
     .icon {
       margin-right: 15px;
+      width: 15px;
+      display: inline-block;
     }
   }
 
