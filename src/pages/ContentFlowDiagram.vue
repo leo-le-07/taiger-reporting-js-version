@@ -6,6 +6,9 @@
     <div class="metrics-container">
       <ContentFlowDiagramMetrics />
     </div>
+    <div class="chart-container">
+      <FlowDiagramChart />
+    </div>
   </div>
 </template>
 
@@ -13,6 +16,7 @@
 import { routeConstants } from '@/constants'
 
 import ContentFlowDiagramMetrics from '@/components/ContentFlowDiagramMetrics/index'
+import FlowDiagramChart from '@/components/FlowDiagramChart'
 
 export default {
   created () {
@@ -38,7 +42,8 @@ export default {
     next()
   },
   components: {
-    ContentFlowDiagramMetrics
+    ContentFlowDiagramMetrics,
+    FlowDiagramChart
   }
 }
 </script>
