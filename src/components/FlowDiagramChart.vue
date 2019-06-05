@@ -40,23 +40,20 @@ export default {
       }
     ]
     const chart = Anychart.sankey(data)
-    // chart.background().fill('#D8D8D8')
 
     // Node configurations
     chart.nodeWidth("30%")
-    chart.node().labels().fontSize(14)
-    chart.node().labels().wordWrap('break-word')
-    chart.node().labels().useHtml(true)
-    // chart.node().labels().format(function() {
-    //   // console.log('labels', this); 
-    //   return `
-    //     <span style='font-weight: bold'>
-    //       ${this.name}
-    //     </span>
-    //     <br>
-    //     ${this.value}
-    //   `
-    // })
+    chart.node().normal().labels().fontSize(14)
+    chart.node().normal().labels().useHtml(true)
+    chart.node().labels().format(function() {
+      return `
+        <span style='font-weight: bold'>
+          ${this.name}
+        </span>
+        <br>
+        ${this.value}
+      `
+    })
 
     // Dropoff configurations
     chart.dropoff().labels().format(function() {
@@ -69,10 +66,10 @@ export default {
       return formatPercentage(this.value / total)
     })
     chart.flow().normal().labels().enabled(true)
-    chart.flow().tooltip().format(function() {
-      console.log('=== flow', this);
+    // chart.flow().tooltip().format(function() {
+      // console.log('=== flow', this);
       // console.log('customFields', this.getData('custom_field'));
-    })
+    // })
 
     chart.container('flow-diagram')
     chart.draw()
