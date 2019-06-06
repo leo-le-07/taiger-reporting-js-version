@@ -16,27 +16,27 @@ export default {
     const data = [
       {
         nodeId: 1,
-        from: "Hi, what are you looking for",
-        to: "Find out more about product",
-        weight:  64
+        from: 'Hi, what are you looking for',
+        to: 'Find out more about product',
+        weight: 64
       },
       {
         nodeId: 2,
-        from: "Hi, what are you looking for",
-        to: "Any promotion?",
+        from: 'Hi, what are you looking for',
+        to: 'Any promotion?',
         weight: 24
       },
       {
         nodeId: 3,
-        from: "Hi, what are you looking for",
-        to: "Just looking around",
+        from: 'Hi, what are you looking for',
+        to: 'Just looking around',
         weight: 46
       },
       {
         nodeId: 4,
-        from: "Hi, what are you looking for",
+        from: 'Hi, what are you looking for',
         to: null,
-        weight:   66
+        weight: 66
       }
     ]
 
@@ -51,7 +51,7 @@ export default {
       .wordWrap('break-word')
       .fontSize(14)
       .useHtml(true)
-      .format(function() {
+      .format(function () {
         return `
           <span>
             ${this.name}
@@ -62,7 +62,7 @@ export default {
       })
 
     // Dropoff configurations
-    chart.dropoff().labels().format(function() {
+    chart.dropoff().labels().format(function () {
       return formatPercentage(this.value / total)
     })
     chart.dropoff().normal().labels().enabled(true)
@@ -72,20 +72,15 @@ export default {
       .flow()
       .labels()
       .enabled(true)
-      .format(function() {
+      .format(function () {
         return formatPercentage(this.value / total)
       })
-      .positionFormatter(function() {
+      .positionFormatter(function () {
         return {
           x: this.value.x,
           y: this.value.y + 25
         }
       })
-
-    // chart.flow().tooltip().format(function() {
-      // console.log('=== flow', this);
-      // console.log('customFields', this.getData('custom_field'));
-    // })
 
     chart.container('flow-diagram')
     chart.draw()
