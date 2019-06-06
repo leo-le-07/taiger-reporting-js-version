@@ -15,13 +15,13 @@
           hover
           bordered
           borderless
+          no-local-sorting
           table-class="app-table"
           thead-class="app-thead"
           tbody-tr-class="app-tbody-tr"
           :busy="isLoading"
           :fields="fields"
           :items="items"
-          no-local-sorting
           @sort-changed="sortingChanged"
         >
           <div slot="table-busy">
@@ -117,7 +117,7 @@ export default {
         {
           key: 'action',
           label: 'Action',
-          thClass: 'content-details__action-header'
+          thClass: 'header__width-300px'
         }
       ],
       icons: {

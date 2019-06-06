@@ -6,6 +6,7 @@ import chatbotUsersOverview from './modules/chatbot-users-overview'
 import chatbotPerformance from './modules/chatbot-performance'
 import contentPerformance from './modules/content-performance'
 import contentFlowDiagram from './modules/content-flow-diagram'
+import contentConversations from './modules/content-conversations'
 
 Vue.use(Vuex)
 
@@ -18,6 +19,7 @@ export default new Vuex.Store({
     chatbotUsersOverview,
     chatbotPerformance,
     contentPerformance,
-    contentFlowDiagram
+    contentFlowDiagram,
+    contentConversations
   }
 })

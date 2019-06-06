@@ -16,6 +16,8 @@ export const timeTypeFilters = {
   MONTH: 'month'
 }
 
+export const DEFAULT_PAGE_SIZE = 5
+
 export const routeConstants = {
   overview: {
     path: '/',

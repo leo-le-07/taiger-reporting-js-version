@@ -3,10 +3,19 @@
     <div class="header">
       <h1>Conversations</h1>
     </div>
+    <div class="header-container">
+      <Header />
+    </div>
+    <div class="conversation-table-container">
+      <ConversationTable />
+    </div>
   </div>
 </template>
 
 <script>
+import Header from '@/components/ContentConversations/Header'
+import ConversationTable from '@/components/ContentConversations/ConversationTable'
+
 import { routeConstants } from '@/constants'
 
 export default {
@@ -30,10 +39,21 @@ export default {
     this.$store.commit('contentPerformance/setIntentId', {
       id: this.$route.params.id
     })
+    this.$store.dispatch('contentConversations/getContentConversations')
+  },
+  components: {
+    Header,
+    ConversationTable
   }
 }
 </script>
 
-<style>
+<style lang="scss" scoped>
+.header-container {
+  margin-top: 30px;
+}
 
+.conversation-table-container {
+  margin-top: 20px;
+}
 </style>

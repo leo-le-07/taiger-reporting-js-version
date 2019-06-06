@@ -49,10 +49,6 @@ a {
     border-bottom-width: 0;
   }
 
-  .content-details__action-header {
-    width: 300px;
-  }
-
   // up arrow
   tr > th[aria-sort]::after {
     content: ' ' !important;
@@ -91,6 +87,19 @@ a {
   }
   tr > th[aria-sort][aria-sort="ascending"]::before {
     border-top-color: $primary;
+  }
+
+  // width configurations
+  .header__width-80px {
+    width: 80px;
+  }
+
+  .header__width-120px {
+    width: 120px;
+  }
+
+  .header__width-300px {
+    width: 300px;
   }
 }
 

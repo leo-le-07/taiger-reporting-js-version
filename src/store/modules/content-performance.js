@@ -1,5 +1,7 @@
 import { repositoryFactory } from '@/apis/repository-factory'
 import { formatNumber, formatPercentage } from '@/utils/number-formatter'
+import { DEFAULT_PAGE_SIZE } from '@/constants'
+import { getQueryParams } from '@/utils/request-helpers'
 
 const contentDetailsRepository = repositoryFactory.get('contentDetails')
 const contentPerformanceRepository = repositoryFactory.get('contentPerformance')
@@ -24,8 +26,6 @@ const formatMetricsData = (metrics) => {
     totalNoAnswerRatedHelpful: formatNumber(metrics.totalNoAnswerRatedHelpful)
   }
 }
-
-const DEFAULT_PAGE_SIZE = 5
 
 const state = {
   contentDetails: {
@@ -105,13 +105,14 @@ const actions = {
   async getContentDetails ({ commit, state }) {
     commit('setContentDetailsLoading', { value: true })
 
-    const response = await contentDetailsRepository.get({
-      _page: state.contentDetails.page,
-      _limit: state.contentDetails.pageSize,
-      q: encodeURIComponent(state.contentDetails.searchContent),
-      _sort: state.contentDetails.sortBy,
-      _order: state.contentDetails.sortDesc ? 'desc' : 'asc'
+    const params = getQueryParams({
+      page: state.contentDetails.page,
+      pageSize: state.contentDetails.pageSize,
+      searchContent: state.contentDetails.searchContent,
+      sortBy: state.contentDetails.sortBy,
+      sortDesc: state.contentDetails.sortDesc
     })
+    const response = await contentDetailsRepository.get(params)
     const data = response.data
 
     commit('setContentDetails', { contentList: data })
