@@ -4,6 +4,7 @@ import Router from 'vue-router'
 import Overview from '@/pages/Overview'
 import ContentPerformance from '@/pages/ContentPerformance'
 import ContentFlowDiagram from '@/pages/ContentFlowDiagram'
+import ContentConversations from '@/pages/ContentConversations'
 
 import { routeConstants } from '@/constants'
 
@@ -25,6 +26,11 @@ export default new Router({
           path: routeConstants.contentFlowDiagram.path,
           name: routeConstants.contentFlowDiagram.name,
           component: ContentFlowDiagram
+        },
+        {
+          path: routeConstants.contentConversations.path,
+          name: routeConstants.contentConversations.name,
+          component: ContentConversations
         }
       ]
     }

@@ -32,12 +32,13 @@ export default {
         }
       ]
     })
-    this.$store.dispatch('contentFlowDiagram/getFlowDiagramData', {
+    this.$store.commit('contentPerformance/setIntentId', {
       id: this.$route.params.id
     })
+    this.$store.dispatch('contentFlowDiagram/getFlowDiagramData')
   },
   beforeRouteLeave (to, from, next) {
-    this.$store.commit('contentFlowDiagram/clearIntentId')
+    this.$store.commit('contentPerformance/clearIntentId')
     this.$store.commit('breadcrumb/clearItems')
     next()
   },

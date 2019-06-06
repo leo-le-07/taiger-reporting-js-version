@@ -31,7 +31,7 @@ export default {
   },
   computed: {
     ...mapState({
-      selectedId: state => state.contentFlowDiagram.id
+      selectedId: state => state.contentPerformance.selectedIntentId
     })
   },
   created () {

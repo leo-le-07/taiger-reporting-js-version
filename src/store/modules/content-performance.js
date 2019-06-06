@@ -44,7 +44,8 @@ const state = {
     noMessageSentByUser: 0,
     totalNoAnswerRatedHelpful: 0
   },
-  answerRatingList: []
+  answerRatingList: [],
+  selectedIntentId: null
 }
 
 const getters = {
@@ -91,6 +92,12 @@ const mutations = {
   },
   setListAnswerRating (state, { resultList }) {
     state.answerRatingList = resultList
+  },
+  setIntentId (state, { id }) {
+    state.selectedIntentId = id
+  },
+  clearIntentId (state) {
+    state.selectedIntentId = null
   }
 }
 

@@ -31,5 +31,10 @@ export const routeConstants = {
     path: ':id/flow-diagram',
     name: 'flow-diagram',
     title: 'Flow Diagram'
+  },
+  contentConversations: {
+    path: ':id/conversations',
+    name: 'content-conversations',
+    title: 'Conversations'
   }
 }

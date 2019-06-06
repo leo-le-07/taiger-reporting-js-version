@@ -46,7 +46,17 @@
               >
                 View Flow Diagram
               </router-link>
-              <TextAsLink value="View Conversations"  class="action-item" />
+              <router-link
+                tag="a"
+                :to="{
+                  name: routeConstants.contentConversations.name,
+                  params: { id: data.item.id }
+                }"
+                append
+                class="action-item"
+              >
+                View Conversations
+              </router-link>
             </div>
           </template>
         </b-table>
@@ -69,7 +79,6 @@ import { mapGetters, mapState, mapActions } from 'vuex'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 import { faInfoCircle } from '@fortawesome/free-solid-svg-icons'
 
-import TextAsLink from '@/components/common/TextAsLink'
 import PaginationGroup from '@/components/common/PaginationGroup'
 // import Search from '@/components/common/Search'
 import Loading from '@/components/common/Loading'
@@ -121,7 +130,6 @@ export default {
   },
   components: {
     FontAwesomeIcon,
-    TextAsLink,
     PaginationGroup,
     // Search,
     Loading

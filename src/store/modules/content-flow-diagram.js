@@ -15,7 +15,6 @@ const formatMetrics = (metrics) => ({
 })
 
 const state = {
-  id: null,
   name: '',
   metrics: {
     timesAsked: 0,
@@ -32,12 +31,6 @@ const getters = {
 }
 
 const mutations = {
-  setIntentId (state, { id }) {
-    state.id = id
-  },
-  clearIntentId (state) {
-    state.id = null
-  },
   setMetricsData (state, {
     timesAsked,
     flowCompletionRate,
@@ -59,11 +52,9 @@ const mutations = {
 }
 
 const actions = {
-  async getFlowDiagramData ({ commit, state }, { id }) {
-    commit('setIntentId', { id })
-
+  async getFlowDiagramData ({ commit, state, rootState }) {
     const response = await contentFlowDiagramRepository.get({
-      id: state.id
+      id: rootState.contentPerformance.id
     })
     const { data } = response
 
