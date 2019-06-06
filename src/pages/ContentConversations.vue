@@ -54,6 +54,6 @@ export default {
 }
 
 .conversation-table-container {
-  margin-top: 20px;
+  margin-top: 10px;
 }
 </style>
