@@ -39,21 +39,27 @@ export default {
         weight:   66
       }
     ]
+
     const chart = Anychart.sankey(data)
 
     // Node configurations
-    chart.nodeWidth("30%")
-    chart.node().normal().labels().fontSize(14)
-    chart.node().normal().labels().useHtml(true)
-    chart.node().labels().format(function() {
-      return `
-        <span style='font-weight: bold'>
-          ${this.name}
-        </span>
-        <br>
-        ${this.value}
-      `
-    })
+    chart.nodeWidth(162)
+    chart
+      .node()
+      .normal()
+      .labels()
+      .wordWrap('break-word')
+      .fontSize(14)
+      .useHtml(true)
+      .format(function() {
+        return `
+          <span>
+            ${this.name}
+          </span>
+          <br>
+          ${this.value}
+        `
+      })
 
     // Dropoff configurations
     chart.dropoff().labels().format(function() {
@@ -62,10 +68,20 @@ export default {
     chart.dropoff().normal().labels().enabled(true)
 
     // Flow configurations
-    chart.flow().labels().format(function() {
-      return formatPercentage(this.value / total)
-    })
-    chart.flow().normal().labels().enabled(true)
+    chart
+      .flow()
+      .labels()
+      .enabled(true)
+      .format(function() {
+        return formatPercentage(this.value / total)
+      })
+      .positionFormatter(function() {
+        return {
+          x: this.value.x,
+          y: this.value.y + 25
+        }
+      })
+
     // chart.flow().tooltip().format(function() {
       // console.log('=== flow', this);
       // console.log('customFields', this.getData('custom_field'));
