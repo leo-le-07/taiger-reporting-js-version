@@ -1,6 +1,6 @@
 <template>
   <div class="home">
-    <div class="header">
+    <div class="app-header-page-container">
       <h1>Conversations</h1>
     </div>
     <div class="header-container">
@@ -49,10 +49,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.header-container {
-  margin-top: 30px;
-}
-
 .conversation-table-container {
   margin-top: 10px;
 }

@@ -1,7 +1,7 @@
 <template>
   <div class="home">
     <div class="main-content-container" v-if="selectedId === null">
-      <div class="header">
+      <div class="app-header-page-container">
         <h1>Content Performance</h1>
       </div>
       <div class="metrics-container">

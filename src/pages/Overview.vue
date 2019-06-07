@@ -1,6 +1,6 @@
 <template>
   <div class="home">
-    <div class="header">
+    <div class="app-header-page-container">
       <h1>Overview</h1>
     </div>
     <div class="chart-container">

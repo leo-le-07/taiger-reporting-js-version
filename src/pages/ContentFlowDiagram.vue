@@ -1,6 +1,6 @@
 <template>
   <div class="home">
-    <div class="header">
+    <div class="app-header-page-container">
       <h1>Flow Diagram</h1>
     </div>
     <div class="metrics-container">
@@ -48,9 +48,3 @@ export default {
   }
 }
 </script>
-
-<style lang="scss" scoped>
-.metrics-container {
-  margin-top: 30px;
-}
-</style>
