@@ -20,7 +20,7 @@
           </div>
           <template slot="action">
             <div class="action-container">
-              <TextAsLink value="View" />
+              <TextAsLink>View</TextAsLink>
             </div>
           </template>
         </b-table>

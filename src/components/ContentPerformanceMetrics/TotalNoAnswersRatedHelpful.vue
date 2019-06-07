@@ -5,10 +5,7 @@
         {{ metrics.totalNoAnswerRatedHelpful }}
       </div>
       <div slot="footer">
-        <TextAsLink
-          value="View"
-          :onClick="openAnswerRatingModal"
-        />
+        <TextAsLink :onClick="openAnswerRatingModal">View</TextAsLink>
       </div>
     </CardPlaceholder>
   </div>

@@ -1,10 +1,12 @@
 <template>
-  <span v-on="onClick && { click: onClick }">{{ value }}</span>
+  <span v-on="onClick && { click: onClick }">
+    <slot />
+  </span>
 </template>
 
 <script>
 export default {
-  props: ['value', 'onClick']
+  props: ['onClick']
 }
 </script>
 
