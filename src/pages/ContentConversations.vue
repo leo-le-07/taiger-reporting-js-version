@@ -41,6 +41,11 @@ export default {
     })
     this.$store.dispatch('contentConversations/getContentConversations')
   },
+  beforeRouteLeave (to, from, next) {
+    this.$store.commit('contentPerformance/clearIntentId')
+    this.$store.commit('breadcrumb/clearItems')
+    next()
+  },
   components: {
     Header,
     ConversationTable

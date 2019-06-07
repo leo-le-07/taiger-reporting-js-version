@@ -10,12 +10,23 @@
     </b-row>
     <b-row>
       <b-col>
-        <Table
-          :isLoading="isLoading"
+        <b-table
+          striped
+          hover
+          bordered
+          borderless
+          no-local-sorting
+          table-class="app-table"
+          thead-class="app-thead"
+          tbody-tr-class="app-tbody-tr"
+          :busy="isLoading"
           :fields="fields"
           :items="items"
           :sortingChanged="sortingChanged"
         >
+          <div slot="table-busy">
+            <Loading />
+          </div>
           <template slot="HEAD_confusionRate" slot-scope="data">
             <div class="confusion-rate-header-container">
               {{ data.label }}
@@ -48,7 +59,7 @@
               </router-link>
             </div>
           </template>
-        </Table>
+        </b-table>
         <div class="pagination-container">
           <PaginationGroup
             :totalRows="totalRows"
@@ -70,7 +81,7 @@ import { faInfoCircle } from '@fortawesome/free-solid-svg-icons'
 
 import PaginationGroup from '@/components/common/PaginationGroup'
 // import Search from '@/components/common/Search'
-import Table from '@/components/common/Table'
+import Loading from '@/components/common/Loading'
 
 import { routeConstants } from '@/constants'
 
@@ -121,7 +132,7 @@ export default {
     FontAwesomeIcon,
     PaginationGroup,
     // Search,
-    Table
+    Loading
   },
   computed: {
     ...mapState({
