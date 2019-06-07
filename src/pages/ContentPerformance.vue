@@ -8,7 +8,7 @@
         <ContentPerformanceMetrics />
       </div>
       <div class="content-details-container">
-        <ContentDetails />
+        <ContentDetailsTable />
       </div>
       <AnswerRatingModal />
     </div>
@@ -19,13 +19,13 @@
 <script>
 import { mapState } from 'vuex'
 
-import ContentDetails from '@/components/ContentDetails'
+import ContentDetailsTable from '@/components/ContentDetailsTable'
 import ContentPerformanceMetrics from '@/components/ContentPerformanceMetrics/index'
 import AnswerRatingModal from '@/components/AnswerRatingModal'
 
 export default {
   components: {
-    ContentDetails,
+    ContentDetailsTable,
     ContentPerformanceMetrics,
     AnswerRatingModal
   },
