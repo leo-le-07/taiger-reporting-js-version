@@ -9,12 +9,14 @@
     <div class="conversation-table-container">
       <ConversationTable />
     </div>
+    <HistoryModal />
   </div>
 </template>
 
 <script>
 import Header from '@/components/ContentConversations/Header'
 import ConversationTable from '@/components/ContentConversations/ConversationTable'
+import HistoryModal from '@/components/ContentConversations/HistoryModal'
 
 import { routeConstants } from '@/constants'
 
@@ -46,9 +48,13 @@ export default {
     this.$store.commit('breadcrumb/clearItems')
     next()
   },
+  mounted () {
+    this.$bvModal.show('conversation-history-modal')
+  },
   components: {
     Header,
-    ConversationTable
+    ConversationTable,
+    HistoryModal
   }
 }
 </script>

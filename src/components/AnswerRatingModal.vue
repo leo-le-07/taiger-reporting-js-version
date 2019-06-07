@@ -1,9 +1,6 @@
 <template>
   <div class="vue-container">
-    <Modal
-      title="Answer Rating"
-      id="answer-rating-modal"
-    >
+    <Modal title="Answer Rating" id="answer-rating-modal">
       <template slot="content">
         <b-table
           striped

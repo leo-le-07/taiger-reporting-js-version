@@ -7,7 +7,7 @@
     body-class="app-modal-body"
     no-close-on-backdrop
     no-close-on-esc
-    scrollable
+    :scrollable="isScrollable"
     size="lg"
   >
     <template slot="default">
@@ -31,7 +31,14 @@
 
 <script>
 export default {
-  props: ['id', 'title']
+  props: {
+    id: String,
+    title: String,
+    isScrollable: {
+      type: Boolean,
+      default: true
+    }
+  }
 }
 </script>
 

@@ -20,7 +20,7 @@
           </div>
           <template slot="action">
             <div class="action-container">
-              <TextAsLink>View</TextAsLink>
+              <TextAsLink :onClick="openHistoryModal">View</TextAsLink>
             </div>
           </template>
         </b-table>
@@ -124,6 +124,9 @@ export default {
       this.$store.dispatch('contentConversations/updatePageSize',
         { pageSize: value }
       )
+    },
+    openHistoryModal () {
+      this.$bvModal.show('conversation-history-modal')
     }
   },
   created () {
