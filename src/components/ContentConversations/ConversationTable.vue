@@ -18,9 +18,9 @@
           <div slot="table-busy">
             <Loading />
           </div>
-          <template slot="action">
+          <template slot="action" slot-scope="data">
             <div class="action-container">
-              <TextAsLink :onClick="openHistoryModal">View</TextAsLink>
+              <TextAsLink :onClick="openHistoryModal(data.item.referenceId)">View</TextAsLink>
             </div>
           </template>
         </b-table>
@@ -125,8 +125,11 @@ export default {
         { pageSize: value }
       )
     },
-    openHistoryModal () {
-      this.$bvModal.show('conversation-history-modal')
+    openHistoryModal (id) {
+      return () => {
+        this.$store.dispatch('contentConversationHistory/getConversations', id)
+        this.$bvModal.show('conversation-history-modal')
+      }
     }
   },
   created () {

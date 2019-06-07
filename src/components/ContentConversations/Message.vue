@@ -17,7 +17,6 @@ export default {
 }
 </script>
 
-
 <style lang="scss" scoped>
 .messages {
   margin-top: 30px;

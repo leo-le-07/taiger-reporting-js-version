@@ -8,20 +8,12 @@
             <div class="user-header">User</div>
           </div>
           <div class="content-container">
-            <Message :isSystem="true" :items="['Okey which service do you want Okey which service do you want Okey which service do you want Okey which service do you want Okey which service do you want Okey which service do you want Okey which service do you want Okey which service do you want ', 'hello 1', 'hello 1', 'hello 1']" />
-            <Message :isSystem="false" :items="['hello 2']" />
-            <Message :isSystem="true" :items="['hello 1', 'hello 1', 'hello 1', 'hello 1']" />
-            <Message :isSystem="false" :items="['hello 2']" />
-            <Message :isSystem="true" :items="['hello 1', 'hello 1', 'hello 1', 'hello 1']" />
-            <Message :isSystem="false" :items="['hello 2']" />
-            <Message :isSystem="true" :items="['hello 1', 'hello 1', 'hello 1', 'hello 1']" />
-            <Message :isSystem="false" :items="['hello 2']" />
-            <Message :isSystem="true" :items="['hello 1', 'hello 1', 'hello 1', 'hello 1']" />
-            <Message :isSystem="false" :items="['hello 2']" />
-            <Message :isSystem="true" :items="['hello 1', 'hello 1', 'hello 1', 'hello 1']" />
-            <Message :isSystem="false" :items="['hello 2']" />
-            <Message :isSystem="true" :items="['hello 1', 'hello 1', 'hello 1', 'hello 1']" />
-            <Message :isSystem="false" :items="['hello 2']" />
+            <Message
+              v-for="(conversation, index) in conversations"
+              :key="index"
+              :isSystem="conversation.isSystem"
+              :items="conversation.contents"
+            />
           </div>
         </div>
       </template>
@@ -30,6 +22,8 @@
 </template>
 
 <script>
+import { mapState } from 'vuex'
+
 import Modal from '@/components/common/Modal'
 import Message from './Message'
 
@@ -37,6 +31,11 @@ export default {
   components: {
     Modal,
     Message
+  },
+  computed: {
+    ...mapState({
+      conversations: state => state.contentConversationHistory.conversations
+    })
   }
 }
 </script>

@@ -6,6 +6,7 @@ import answerRatingRepository from './answer-rating-repository'
 import contentFlowDiagramRepository from './content-flow-diagram-repository'
 import contentConversationsRepository from './content-conversations-repository'
 import contentConversationListRepository from './content-conversation-list-repository'
+import contentConversationHistoryRepository from './content-conversation-history-repository'
 
 const repositories = {
   chatbotUsersOverview: chatbotUsersOverviewRepository,
@@ -15,7 +16,8 @@ const repositories = {
   answerRating: answerRatingRepository,
   contentFlowDiagram: contentFlowDiagramRepository,
   contentConversations: contentConversationsRepository,
-  contentConversationList: contentConversationListRepository
+  contentConversationList: contentConversationListRepository,
+  contentConversationHistory: contentConversationHistoryRepository
 }
 
 export const repositoryFactory = {

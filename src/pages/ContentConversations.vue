@@ -14,6 +14,8 @@
 </template>
 
 <script>
+import { mapState } from 'vuex'
+
 import Header from '@/components/ContentConversations/Header'
 import ConversationTable from '@/components/ContentConversations/ConversationTable'
 import HistoryModal from '@/components/ContentConversations/HistoryModal'
@@ -48,13 +50,15 @@ export default {
     this.$store.commit('breadcrumb/clearItems')
     next()
   },
-  mounted () {
-    this.$bvModal.show('conversation-history-modal')
-  },
   components: {
     Header,
     ConversationTable,
     HistoryModal
+  },
+  computed: {
+    ...mapState({
+      conversationId: state => state.contentConversationHistory.id
+    })
   }
 }
 </script>
