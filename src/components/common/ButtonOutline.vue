@@ -1,14 +1,10 @@
 <template>
   <div class="vue-container">
-    <b-button variant="outline-secondary">{{ content }}</b-button>
+    <b-button variant="outline-secondary">
+      <slot />
+    </b-button>
   </div>
 </template>
-
-<script>
-export default {
-  props: ['content']
-}
-</script>
 
 <style lang="scss" scoped>
 .btn-outline-secondary {

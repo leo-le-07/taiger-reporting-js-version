@@ -3,7 +3,7 @@
     <div class="intent-name-container">
       <div class="intent-name">Intent Name: {{ name }}</div>
       <div class="edit-intent">
-        <ButtonOutline content="Edit Intent" />
+        <ButtonOutline>Edit Intent</ButtonOutline>
       </div>
     </div>
   </div>

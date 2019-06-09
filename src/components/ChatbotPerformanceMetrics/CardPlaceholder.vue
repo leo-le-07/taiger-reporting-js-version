@@ -24,7 +24,6 @@
 </template>
 
 <script>
-import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 import {
   faInfoCircle,
   faCaretUp,
@@ -43,9 +42,6 @@ export default {
       upIcon: faCaretUp,
       downIcon: faCaretDown
     }
-  },
-  components: {
-    FontAwesomeIcon
   }
 }
 </script>
